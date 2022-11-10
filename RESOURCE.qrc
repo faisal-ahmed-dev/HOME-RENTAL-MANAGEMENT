@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/resources">
+        <file>resources/kindpng_1712282.png</file>
+        <file>resources/house_rental_icon.png</file>
+        <file>resources/HOME_PAGE.jpeg</file>
+        <file>resources/delete-icon-980x980.png</file>
+        <file>resources/password-eye-icon-401x339.png</file>
+        <file>resources/vecteezy_preview-show-interface-icon_6086018.jpg</file>
+        <file>resources/eye_off.jpg</file>
+    </qresource>
+</RCC>
