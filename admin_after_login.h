@@ -39,6 +39,10 @@ private slots:
 
     void on_pushButton_profile_info_clicked();
 
+
+
+    void on_pushButton_ABOUT_clicked();
+
 private:
     Ui::admin_after_login *ui;
 };

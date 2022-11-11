@@ -20,7 +20,6 @@ private slots:
     void on_pushButton_ADD_clicked();
 
     void on_pushButton_back_clicked();
-    void show();
 
     void on_pushButton_clear_2_clicked();
 

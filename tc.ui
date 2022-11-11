@@ -81,6 +81,19 @@ hr { height: 1px; border-width: 0; }
     <string>BACK</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="pushButton_PRINT">
+   <property name="geometry">
+    <rect>
+     <x>420</x>
+     <y>510</y>
+     <width>91</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>PRINT</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

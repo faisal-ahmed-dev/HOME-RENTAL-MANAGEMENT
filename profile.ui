@@ -75,9 +75,9 @@
    <property name="geometry">
     <rect>
      <x>70</x>
-     <y>160</y>
+     <y>150</y>
      <width>311</width>
-     <height>181</height>
+     <height>251</height>
     </rect>
    </property>
    <property name="minimumSize">
@@ -297,15 +297,80 @@
       </item>
      </layout>
     </item>
+    <item>
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Preferred</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>37</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QLabel" name="label_2">
+        <property name="font">
+         <font>
+          <bold>true</bold>
+          <strikeout>false</strikeout>
+          <kerning>true</kerning>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(170, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>DELETE ACCOUNT</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>97</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_DELETE">
+        <property name="styleSheet">
+         <string notr="true">image: url(:/resources/resources/delete-icon-980x980.png);
+
+</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
    </layout>
   </widget>
   <widget class="QLabel" name="label_WELCOME">
    <property name="geometry">
     <rect>
      <x>320</x>
-     <y>50</y>
+     <y>67</y>
      <width>231</width>
-     <height>51</height>
+     <height>17</height>
     </rect>
    </property>
    <property name="font">
@@ -335,7 +400,7 @@
    <property name="geometry">
     <rect>
      <x>410</x>
-     <y>260</y>
+     <y>205</y>
      <width>91</width>
      <height>21</height>
     </rect>
@@ -350,44 +415,21 @@
     <string/>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QLabel" name="label_picture">
    <property name="geometry">
     <rect>
-     <x>390</x>
-     <y>410</y>
-     <width>151</width>
-     <height>51</height>
+     <x>270</x>
+     <y>60</y>
+     <width>51</width>
+     <height>33</height>
     </rect>
    </property>
-   <layout class="QHBoxLayout" name="horizontalLayout">
-    <item>
-     <widget class="QLabel" name="label_2">
-      <property name="font">
-       <font>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(170, 0, 0);</string>
-      </property>
-      <property name="text">
-       <string>DELETE ACCOUNT</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="pushButton_DELETE">
-      <property name="styleSheet">
-       <string notr="true">image: url(:/resources/resources/delete-icon-980x980.png);
-
-</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-   </layout>
+   <property name="styleSheet">
+    <string notr="true">image: url(:/resources/resources/kindpng_1712282.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
   </widget>
  </widget>
  <resources/>

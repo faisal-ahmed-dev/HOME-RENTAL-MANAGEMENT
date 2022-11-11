@@ -58,7 +58,14 @@ void TRANSACTIONS::on_pushButton_PAYMENT_clicked()
      QSqlQuery qy4(QSqlDatabase::database("myconnect"));
      qy4.prepare("select * from building");
      qy4.exec();
-     while(qy4.next())
+     qy.prepare("select * from renter where FLAT='"+val+"'");
+     qy.exec();
+     while(qy.next())
+     {
+     rec_name=qy.value(1).toString();
+     rec_phone=qy.value(2).toString();
+     }
+           while(qy4.next())
      {
          rec_address=qy4.value(1).toString();
          rec_apart_name=qy4.value(0).toString();
@@ -69,20 +76,18 @@ void TRANSACTIONS::on_pushButton_PAYMENT_clicked()
      }
    else if(ui->radioButton_regular->isChecked())
     {
-   qy.prepare("select * from renter where FLAT='"+val+"'");
+
    qy1.prepare("SELECT * FROM trans ORDER BY ID DESC LIMIT 1");
    qy3.prepare("select * from RENT_DATA where FLAT='"+val+"'AND DATE='"+month+"'");
-   if(qy.exec()&& qy1.exec()&& qy3.exec())
+   if( qy1.exec()&& qy3.exec())
    {
 
 
-       if(qy.next()&& qy1.next()&& qy3.next())
+       if( qy1.next()&& qy3.next())
         {
            val_rent=qy.value(6).toInt();
            qint64 month_rent=qy3.value(8).toInt();
            month_rent=month_rent-val1;
-           rec_name=qy.value(1).toString();
-            rec_phone=qy.value(2).toString();
             val_rent=val_rent-val1;
             if(qy1.value(0).toInt()==0)
             {
@@ -131,6 +136,7 @@ void TRANSACTIONS::on_pushButton_PAYMENT_clicked()
                 {
                      QDateTime dateTime = dateTime.currentDateTime();
                   QString date=dateTime.toString();
+                  QString asdate=dateTime.toString("dd_MM_yyyy");
                  QString html =
                          "<!DOCTYPE html>"
                          "<html>"
@@ -143,13 +149,14 @@ void TRANSACTIONS::on_pushButton_PAYMENT_clicked()
                          "<div>"
                          "<h2>   ["+rec_apart_name+"]</h2>"
                          "<h2> -----RENT RECEIPT-----</h2>"
+                           "Flat            : "+val+"<br>"
                            "Name            : "+rec_name+"<br>"
                            "Phone           : "+rec_phone+"<br>"
                            "Rent month      : "+month+"<br>"
                            "Amount received : "+rec_amount+"<br>"
                            "Payment status  : Regular<br>"
                            "Date            : "+date+"<br>"
-                           "Address         : "+rec_address+"   <br>"
+                           "Address         : "+rec_address+"   "
                          "</div>"
                          "</h3>"
                          "</pre>"
@@ -161,11 +168,11 @@ void TRANSACTIONS::on_pushButton_PAYMENT_clicked()
 
                  QTextDocument document;
                  document.setHtml(html);
-                     QString s=rec_name;
+                   QString s=val+"_"+rec_name+"_"+asdate;
                  QPrinter printer(QPrinter::PrinterResolution);
                  printer.setOutputFormat(QPrinter::PdfFormat);
-                 printer.setOutputFileName("C:/"+s+".pdf");
-                 printer.setPageMargins(QMarginsF(15, 15, 15, 15));
+                 printer.setOutputFileName("D:/"+s+".pdf");
+                 printer.setPageMargins(QMarginsF(6, 6, 5, 5));
                  document.print(&printer);
                   QMessageBox::information(this,"RENT","RENT RECEIPT ISSUED");
                 }
@@ -207,6 +214,7 @@ void TRANSACTIONS::on_pushButton_PAYMENT_clicked()
             {
                 QDateTime dateTime = dateTime.currentDateTime();
              QString date=dateTime.toString();
+             QString asdate=dateTime.toString("dd_MM_yyyy");
              QString html =
                      "<!DOCTYPE html>"
                      "<html>"
@@ -219,13 +227,13 @@ void TRANSACTIONS::on_pushButton_PAYMENT_clicked()
                      "<div>"
                      "<h2>   ["+rec_apart_name+"]</h2>"
                      "<h2> -----RENT RECEIPT-----</h2>"
+                       "Flat            : "+val+"<br>"
                        "Name            : "+rec_name+"<br>"
                        "Phone           : "+rec_phone+"<br>"
-                       "Rent month      : "+month+"<br>"
                        "Amount received : "+rec_amount+"<br>"
                        "Payment status  : Advance<br>"
                        "Date            : "+date+"<br>"
-                       "Address         : "+rec_address+"   <br>"
+                       "Address         : "+rec_address+"   "
                      "</div>"
                      "</h3>"
                      "</pre>"
@@ -237,11 +245,11 @@ void TRANSACTIONS::on_pushButton_PAYMENT_clicked()
 
              QTextDocument document;
              document.setHtml(html);
-                QString s=rec_name;
+               QString s=val+"_"+rec_name+"_"+asdate;
              QPrinter printer(QPrinter::PrinterResolution);
              printer.setOutputFormat(QPrinter::PdfFormat);
-             printer.setOutputFileName("C:/"+s+".pdf");
-             printer.setPageMargins(QMarginsF(15, 15, 15, 15));
+             printer.setOutputFileName("D:/"+s+".pdf");
+             printer.setPageMargins(QMarginsF(6, 6, 5, 5));
              document.print(&printer);
               QMessageBox::information(this,"RENT","RENT RECEIPT ISSUED");
             }
@@ -260,7 +268,7 @@ void TRANSACTIONS::on_pushButton_PAYMENT_clicked()
             bill=qy.value(4).toInt();
          }
         bill=bill-val1;
-        qDebug()<<bill;
+
         if(bill==0)
         {
             QString paid="PAID";
@@ -272,6 +280,53 @@ void TRANSACTIONS::on_pushButton_PAYMENT_clicked()
          if(qy1.exec())
          {
              QMessageBox::information(this,"RENT","PAYMENT SUCCESSFULL");
+             QMessageBox::information(this,"PAYMENT","PAYMENT SUCCESSFULL");
+             QMessageBox::StandardButton reply;
+             reply=QMessageBox::question(this,"PAYMENT","DO YOU WANT RENT RECEIPT",QMessageBox::Yes | QMessageBox::No );
+
+            if(reply==QMessageBox::Yes)
+            {
+                QDateTime dateTime = dateTime.currentDateTime();
+             QString date=dateTime.toString();
+             QString asdate=dateTime.toString("dd_MM_yyyy");
+             QString html =
+                     "<!DOCTYPE html>"
+                     "<html>"
+                     "<head>"
+                     "</head>"
+                     "<body>"
+                     "<pre>"
+                     "<form>"
+                     "<h3>"
+                     "<div>"
+                     "<h2>   ["+rec_apart_name+"]</h2>"
+                     "<h2> -----RENT RECEIPT-----</h2>"
+                       "Flat            : "+val+"<br>"
+                       "Name            : "+ rec_name +"<br>"
+                       "Phone           : "+rec_phone+"<br>"
+                       "Amount received : "+rec_amount+"<br>"
+                       "Payment status  : Maintenance<br>"
+                       "Date            : "+date+"<br>"
+                       "Address         : "+rec_address+"   "
+                     "</div>"
+                     "</h3>"
+                     "</pre>"
+                     "</form>"
+                     "</form>"
+                     "</form>"
+                     "</body>"
+                     "</html>";
+
+             QTextDocument document;
+             document.setHtml(html);
+                QString s=val+"_"+rec_name+"_"+asdate;
+             QPrinter printer(QPrinter::PrinterResolution);
+             printer.setOutputFormat(QPrinter::PdfFormat);
+             printer.setOutputFileName("D:/"+s+".pdf");
+             printer.setPageMargins(QMarginsF(6, 6, 5, 5));
+             document.print(&printer);
+              QMessageBox::information(this,"RENT","RENT RECEIPT ISSUED");
+            }
          }
          else
          {

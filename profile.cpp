@@ -18,7 +18,7 @@ profile::profile(QWidget *parent) :
     QSqlQuery qy1(QSqlDatabase::database("myconnect"));
     QSqlQuery query(QSqlDatabase::database("myconnect"));
 
-               query.prepare("select * from(SELECT * FROM(SELECT  distinct * FROM LOGIN_TIME ORDER BY TIME DESC) GROUP BY USER) order by TIME DESC");
+               query.prepare("select * from(SELECT * FROM(SELECT  distinct * FROM LOGIN_TIME ORDER BY SERIAL DESC) GROUP BY USER) order by SERIAL DESC");
                query.exec();
                ui->tableWidget->setColumnCount(2);
                QStringList labels;
@@ -37,7 +37,7 @@ profile::profile(QWidget *parent) :
                     QTableWidgetItem *time= new QTableWidgetItem;
 
                     user->setText(query.value(0).toString());
-                    time->setText(query.value(1).toString());
+                    time->setText(query.value(1).toString()+"  "+query.value(2).toString());
 
                     ui->tableWidget->setItem(rowcount,0,user);
                     ui->tableWidget->setItem(rowcount,1,time);
@@ -45,7 +45,7 @@ profile::profile(QWidget *parent) :
                     rowcount++;
                }
 
-            qy1.prepare("SELECT * FROM LOGIN_TIME ORDER BY TIME DESC LIMIT 1");
+           qy1.prepare("SELECT * FROM LOGIN_TIME ORDER BY SERIAL DESC LIMIT 1");
             qy1.exec();
             if(qy1.next())
             {

@@ -13,6 +13,7 @@
 #include<maintenance.h>
 #include<admin_login.h>
 #include<profile.h>
+#include<about.h>
 admin_after_login::admin_after_login(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::admin_after_login)
@@ -29,7 +30,7 @@ admin_after_login::admin_after_login(QWidget *parent) :
             {
             ui->label_name->setText(qy.value(0).toString());
            }
-            qy1.prepare("SELECT * FROM LOGIN_TIME ORDER BY TIME DESC LIMIT 1");
+            qy1.prepare("SELECT * FROM LOGIN_TIME ORDER BY SERIAL DESC LIMIT 1");
             qy1.exec();
             if(qy1.next())
             {
@@ -162,6 +163,17 @@ void admin_after_login::on_pushButton_profile_info_clicked()
 {
     hide();
     profile a;
+    a.setModal(true);
+    a.exec();
+}
+
+
+
+
+void admin_after_login::on_pushButton_ABOUT_clicked()
+{
+    hide();
+    ABOUT a;
     a.setModal(true);
     a.exec();
 }

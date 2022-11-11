@@ -9,6 +9,7 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    about.cpp \
     admin_after_login.cpp \
     admin_login.cpp \
     building_customize_menu.cpp \
@@ -23,6 +24,7 @@ SOURCES += \
     transactions.cpp
 
 HEADERS += \
+    about.h \
     admin_after_login.h \
     admin_login.h \
     building_customize_menu.h \
@@ -37,6 +39,7 @@ HEADERS += \
 
 
 FORMS += \
+    about.ui \
     admin_after_login.ui \
     admin_login.ui \
     building_customize_menu.ui \

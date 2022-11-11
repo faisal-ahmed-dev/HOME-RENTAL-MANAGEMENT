@@ -1,6 +1,7 @@
 #include "maintenance.h"
 #include "qfloat16.h"
 #include "ui_maintenance.h"
+#include<maintenance.h>
 #include<QTimer>
 #include<QSqlDatabase>
 #include<QSql>

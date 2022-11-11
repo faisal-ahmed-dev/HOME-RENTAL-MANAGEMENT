@@ -18,6 +18,8 @@ public:
 private slots:
     void on_pushButton_back_clicked();
 
+    void on_pushButton_PRINT_clicked();
+
 private:
     Ui::tc *ui;
 };

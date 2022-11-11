@@ -41,10 +41,12 @@ void admin_login::on_pushButton_LOGIN_clicked()
        if(query.next())
         {
            QDateTime dateTime = dateTime.currentDateTime();
-           QString as=dateTime.toString("HH:mm:ss  dd/MM/yyyy");
-           query1.prepare("insert into LOGIN_TIME(USER,TIME)""values(:user,:time)");
+           QString astime=dateTime.toString("HH:mm:ss");
+           QString asdate=dateTime.toString("dd/MM/yyyy");
+           query1.prepare("insert into LOGIN_TIME(USER,TIME,DATE)""values(:user,:time,:date)");
            query1.bindValue(":user",username);
-           query1.bindValue(":time",as);
+           query1.bindValue(":time",astime);
+           query1.bindValue(":date",asdate);
            query1.exec();
             hide();
                 admin_after_login af;

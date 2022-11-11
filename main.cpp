@@ -8,6 +8,4 @@ int main(int argc, char *argv[])
     a.setWindowIcon(QIcon(":/resources/resources/house_rental_icon.png"));
     w.show();
     return a.exec();
-
-
 }
