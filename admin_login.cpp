@@ -23,7 +23,7 @@ admin_login::~admin_login()
 void admin_login::on_pushButton_LOGIN_clicked()
 {
     QSqlDatabase db= QSqlDatabase::addDatabase("QSQLITE","myconnect");
-    db.setDatabaseName("C:/sqlitestudio/database/faisal_sql.sqlite");
+    db.setDatabaseName("HOME.sqlite");
     QString username= ui->lineEdit_username->text();
     QString password= ui->lineEdit_2->text();
 
@@ -69,5 +69,20 @@ void admin_login::on_pushButton_SIGNUP_clicked()
     signup_form af;
     af.setModal(true);
     af.exec();
+}
+
+
+void admin_login::on_pushButton_eye_pressed()
+{
+    ui->pushButton_eye->setStyleSheet("image: url(:/resources/resources/vecteezy_preview-show-interface-icon_6086018.jpg);");
+   ui->lineEdit_2->setEchoMode(QLineEdit::Normal);
+
+}
+
+
+void admin_login::on_pushButton_eye_released()
+{
+    ui->pushButton_eye->setStyleSheet("image: url(:/resources/resources/eye_off.jpg);");
+    ui->lineEdit_2->setEchoMode(QLineEdit::Password);
 }
 

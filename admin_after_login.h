@@ -43,6 +43,10 @@ private slots:
 
     void on_pushButton_ABOUT_clicked();
 
+    void on_pushButton_NOTEPAD_clicked();
+
+    void on_pushButton_notepad_pic_clicked();
+
 private:
     Ui::admin_after_login *ui;
 };

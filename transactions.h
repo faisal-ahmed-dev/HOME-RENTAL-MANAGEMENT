@@ -26,6 +26,8 @@ private slots:
 
     void on_pushButton_SEARCH_clicked();
 
+    void show();
+
 private:
     Ui::TRANSACTIONS *ui;
 };

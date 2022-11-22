@@ -109,6 +109,10 @@
        <property name="autoFillBackground">
         <bool>false</bool>
        </property>
+       <property name="styleSheet">
+        <string notr="true">
+</string>
+       </property>
        <property name="frame">
         <bool>true</bool>
        </property>
@@ -174,6 +178,22 @@
       </widget>
      </item>
     </layout>
+   </widget>
+   <widget class="QPushButton" name="pushButton_eye">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>85</y>
+      <width>21</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">image: url(:/resources/resources/eye_off.jpg);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
    </widget>
   </widget>
   <widget class="QLabel" name="label">
@@ -260,7 +280,18 @@
     <string>LOGIN FORM</string>
    </property>
   </widget>
+  <action name="actionico">
+   <property name="icon">
+    <iconset resource="RESOURCE.qrc">
+     <normaloff>:/resources/resources/house_rental_icon.ico</normaloff>:/resources/resources/house_rental_icon.ico</iconset>
+   </property>
+   <property name="text">
+    <string>ico</string>
+   </property>
+  </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="RESOURCE.qrc"/>
+ </resources>
  <connections/>
 </ui>

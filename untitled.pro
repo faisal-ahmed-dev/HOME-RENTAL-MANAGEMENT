@@ -2,6 +2,7 @@ QT       += core gui sql printsupport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
+
 CONFIG += c++17
 
 # You can make your code fail to compile if it uses deprecated APIs.
@@ -15,6 +16,7 @@ SOURCES += \
     building_customize_menu.cpp \
     main.cpp \
     maintenance.cpp \
+    notepad.cpp \
     profile.cpp \
     renter_menu.cpp \
     renter_search.cpp \
@@ -29,6 +31,7 @@ HEADERS += \
     admin_login.h \
     building_customize_menu.h \
     maintenance.h \
+    notepad.h \
     profile.h \
     renter_menu.h \
     renter_search.h \
@@ -44,6 +47,7 @@ FORMS += \
     admin_login.ui \
     building_customize_menu.ui \
     maintenance.ui \
+    notepad.ui \
     profile.ui \
     renter_menu.ui \
     renter_search.ui \

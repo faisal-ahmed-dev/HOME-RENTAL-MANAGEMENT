@@ -99,6 +99,7 @@
    </property>
    <property name="font">
     <font>
+     <pointsize>10</pointsize>
      <bold>true</bold>
     </font>
    </property>
@@ -279,6 +280,27 @@
      </widget>
     </item>
    </layout>
+  </widget>
+  <widget class="QPushButton" name="pushButton_info">
+   <property name="geometry">
+    <rect>
+     <x>770</x>
+     <y>197</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">image: url(:/resources/resources/informaionicon.png);
+
+border: 1px solid gray;
+border-radius: 8px;
+padding: 0 2px;
+background: transparent;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
   </widget>
  </widget>
  <resources/>

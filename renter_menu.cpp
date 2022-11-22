@@ -18,16 +18,17 @@ renter_menu::renter_menu(QWidget *parent) :
 {
     hide();
     ui->setupUi(this);
+    ui->groupBox_2->setEnabled(false);
     QTimer *timer=new QTimer(this);
     connect(timer,SIGNAL(timeout()),this,SLOT(show()));
     timer->start();
      QSqlDatabase db= QSqlDatabase::addDatabase("QSQLITE","myconnect");
-    db.setDatabaseName("C:/sqlitestudio/database/faisal_sql.sqlite");
+ db.setDatabaseName("HOME.sqlite");
     if(db.open())
     {
 
         QSqlQuery query(db);
-        QString str ="select * from renter order by FLAT ASC";
+        QString str ="select * from renter ";
         if(!query.exec(str))
         {
              QMessageBox::warning(this,"RENTER","DATABASE QUERY NOT OPENED");
@@ -46,6 +47,7 @@ renter_menu::renter_menu(QWidget *parent) :
             ui->tableWidget->setColumnWidth(6,90);
             ui->tableWidget->setColumnWidth(7,90);
             ui->tableWidget->setColumnWidth(8,90);
+
 
             int rowcount=0;
 
@@ -118,6 +120,23 @@ void renter_menu::show()
     qint64 total=service+gas+water+maintenance+other;
     QString tot=QString::number(total);
     ui->lineEdit_TOTAL->setText(tot);
+
+    if(ui->radioButton_ONE->isChecked())
+    {
+        ui->groupBox_2->setEnabled(true);
+        ui->label_RENTFLAT->setEnabled(true);
+        ui->lineEdit_RENTFLAT->setEnabled(true);
+
+    }
+    else if(ui->radioButton_ALL->isChecked())
+    {
+        ui->groupBox_2->setEnabled(true);
+        ui->label_RENTFLAT->setEnabled(false);
+        ui->lineEdit_RENTFLAT->setEnabled(false);
+    }
+
+
+
 }
 
 
@@ -125,7 +144,7 @@ void renter_menu::on_pushButton_3_clicked()
 {
 
     QSqlDatabase db= QSqlDatabase::addDatabase("QSQLITE");
-     db.setDatabaseName("C:/sqlitestudio/database/faisal_sql.sqlite");
+ db.setDatabaseName("HOME.sqlite");
 
 
      if(db.open())
@@ -400,6 +419,7 @@ void renter_menu::on_pushButton_clear_2_clicked()
     ui->lineEdit_MAINTENANCE->setText("");
     ui->lineEdit_TOTAL->setText("");
     ui->lineEdit_OTHER->setText("");
+    ui->lineEdit_RENTFLAT->setText("");
 }
 
 
@@ -407,10 +427,11 @@ void renter_menu::on_pushButton_ADMIT_clicked()
 {
 
     QMessageBox::StandardButton reply;
-    reply=QMessageBox::question(this,"","ARE YOU SURE WANT TO ADD BILLS?",QMessageBox::Yes| QMessageBox::No|QMessageBox::Cancel);
+    reply=QMessageBox::question(this,"RENTER MENU","ARE YOU SURE WANT TO ADD BILLS?",QMessageBox::Yes| QMessageBox::No|QMessageBox::Cancel);
 
     if(reply==QMessageBox::Yes){
-
+if(ui->radioButton_ALL->isChecked())
+{
         QString service=ui->lineEdit_SERVICE->text();
         QString gas=ui->lineEdit_GAS->text();
         QString water=ui->lineEdit_WATER->text();
@@ -423,46 +444,70 @@ void renter_menu::on_pushButton_ADMIT_clicked()
         QSqlQuery qy2(QSqlDatabase::database("myconnect"));
         QSqlQuery qy3(QSqlDatabase::database("myconnect"));
         QSqlQuery qy4(QSqlDatabase::database("myconnect"));
-        qy2.prepare("select * from renter where NAME IS NOT NULL");
+        qy2.prepare("select * from renter where NAME IS NOT NULL AND MONEY IS NOT NULL");
 
         qy2.exec();
 
         while(qy2.next())
         {
-            int advance=0;
+            int advance=0,advance_now;
             qint64 previous=qy2.value(6).toInt();
             qint64 rent=qy2.value(5).toInt();
             qint64 totalint =ui->lineEdit_TOTAL->text().toInt();
             QString month_rent=QString::number(rent+totalint);
-            qint64 DUE=previous+totalint+rent;
+            qint64 DUE=previous;
+            qint64 rent_now=totalint+rent;
             QString flat=qy2.value(0).toString();
             QSqlQuery qy4(QSqlDatabase::database("myconnect"));
             QSqlQuery qy5(QSqlDatabase::database("myconnect"));
-            qy4.prepare("select * from ADVANCE where FLAT=:flat");
+            QSqlQuery qy6(QSqlDatabase::database("myconnect"));
+            qy4.prepare("select * from ADVANCE where FLAT=:flat AND STATUS=:add");
+            qy4.bindValue(":add","NOT ADDED");
             qy4.bindValue(":flat",flat);
             qy4.exec();
             while(qy4.next())
             {
                    advance=advance+qy4.value(2).toInt();
             }
-            DUE=DUE-advance;
-            if(DUE<1)
-            {
-                qy5.prepare("update ADVANCE SET AMOUNT=:due where FLAT=:flat");
-                qy5.bindValue(":flat",flat);
-                qy5.bindValue(":due",DUE);
-                qy5.exec();
-            }
-            else
-            {
-                qy5.prepare("DELETE from ADVANCE where FLAT=:flat");
-                qy5.bindValue(":flat",flat);
-                qy5.exec();
-            }
+            advance_now=rent_now-advance;
+            rent_now=rent_now-advance;
 
-
+            if(advance_now<0)
+            {
+                advance_now=0;
+            }
+            qy5.prepare(QString("UPDATE ADVANCE set STATUS=:add,AMOUNT=:amount where FLAT=:flat"));
+            qy5.bindValue(":flat",flat);
+            qy5.bindValue(":amount",month_rent);
+            qy5.bindValue(":add","ADDED");
+            qy5.exec();
+            if(rent_now<0)
+            {
+            qint64 AD_DUE=abs(rent_now);
+            QString add_due=QString::number(AD_DUE);
+            qy6.prepare("insert into ADVANCE(FLAT,DATE,AMOUNT,STATUS)""values(:flat,:date,:amount,:add)");
+            qy6.bindValue(":flat",flat);
+            qy6.bindValue(":add","NOT ADDED");
+            qy6.bindValue(":amount",add_due);
+            qy6.exec();
+            rent_now=0;
+            }
+            QString payment;
+            DUE=DUE+rent_now;
+             month_rent=QString::number(rent_now);
             total=QString::number(DUE);
-            QString payment="NOT PAID";
+            if(rent_now>0)
+            {
+           payment="NOT PAID";
+            }
+            else if(rent_now<=0)
+            {
+                 payment="PAID";
+                 month_rent=0;
+            }
+
+            if(rent!=0)
+            {
             qy.prepare("insert into RENT_DATA(DATE,SERVICE,GAS,WATER,MAINTENANCE,OTHER,TOTAL,FLAT,RENT_TOTAL,PAYMENT)""values(:date,:service,:gas,:water,:maintenance,:other,:total,:flat,:month_rent,:payment)");
             qy.bindValue(":date",date);
             qy.bindValue(":service",service);
@@ -474,11 +519,18 @@ void renter_menu::on_pushButton_ADMIT_clicked()
             qy.bindValue(":flat",flat);
             qy.bindValue(":month_rent",month_rent);
             qy.bindValue(":payment",payment);
-            qy.exec();
+            if(qy.exec())
+            {
             qy3.prepare(QString("UPDATE renter set DUE=:total where FLAT=:flat and NAME IS NOT NULL"));
             qy3.bindValue(":total",total);
             qy3.bindValue(":flat",flat);
             qy3.exec();
+            }
+            else
+            {
+                continue;
+            }
+            }
 
         }
 
@@ -487,7 +539,133 @@ void renter_menu::on_pushButton_ADMIT_clicked()
         r.setModal(true);
         r.exec();
         }
+else if(ui->radioButton_ONE->isChecked())
+{
+    QString service=ui->lineEdit_SERVICE->text();
+    QString gas=ui->lineEdit_GAS->text();
+    QString water=ui->lineEdit_WATER->text();
+    QString maintenance=ui->lineEdit_MAINTENANCE->text();
+    QString total=ui->lineEdit_TOTAL->text();
+    QString other=ui->lineEdit_OTHER->text();
 
+    QString date= ui->dateEdit_2->text();
+    QString rentflat=ui->lineEdit_RENTFLAT->text().toUpper();
+    QSqlQuery qy(QSqlDatabase::database("myconnect"));
+    if(rentflat=="")
+    {
+        QMessageBox::warning(this,"RENT MENU","PLEASE INSERT FLAT");
+        return;
+    }
+    QSqlQuery qy2(QSqlDatabase::database("myconnect"));
+    QSqlQuery qy3(QSqlDatabase::database("myconnect"));
+    QSqlQuery qy4(QSqlDatabase::database("myconnect"));
+
+    qy2.prepare("select * from renter where FLAT=:rentflat");
+    qy2.bindValue(":rentflat",rentflat);
+    if(qy2.exec())
+    {
+
+    while(qy2.next())
+    {
+        int advance=0,advance_now;
+        qint64 previous=qy2.value(6).toInt();
+        qint64 rent=qy2.value(5).toInt();
+        qint64 totalint =ui->lineEdit_TOTAL->text().toInt();
+        QString month_rent=QString::number(rent+totalint);
+        qint64 DUE=previous;
+        qint64 rent_now=totalint+rent;
+        QString flat=qy2.value(0).toString();
+        QSqlQuery qy4(QSqlDatabase::database("myconnect"));
+        QSqlQuery qy5(QSqlDatabase::database("myconnect"));
+         QSqlQuery qy6(QSqlDatabase::database("myconnect"));
+        qy4.prepare("select * from ADVANCE where FLAT=:flat AND STATUS=:add");
+        qy4.bindValue(":flat",flat);
+        qy4.bindValue(":add","NOT ADDED");
+        qy4.exec();
+        while(qy4.next())
+        {
+               advance=advance+qy4.value(2).toInt();
+        }
+        advance_now=rent_now-advance;
+        rent_now=rent_now-advance;
+
+        if(advance_now<0)
+        {
+            advance_now=0;
+        }
+        qy5.prepare(QString("UPDATE ADVANCE set STATUS=:add,AMOUNT=:amount where FLAT=:flat"));
+        qy5.bindValue(":flat",flat);
+        qy5.bindValue(":amount",month_rent);
+        qy5.bindValue(":add","ADDED");
+        qy5.exec();
+        if(rent_now<0)
+        {
+        qint64 AD_DUE=abs(rent_now);
+        QString add_due=QString::number(AD_DUE);
+        qy6.prepare("insert into ADVANCE(FLAT,DATE,AMOUNT,STATUS)""values(:flat,:date,:amount,:add)");
+        qy6.bindValue(":flat",flat);
+        qy6.bindValue(":add","NOT ADDED");
+        qy6.bindValue(":amount",add_due);
+        qy6.exec();
+        rent_now=0;
+        }
+        QString payment;
+        DUE=DUE+rent_now;
+         month_rent=QString::number(rent_now);
+        total=QString::number(DUE);
+        if(rent_now>0)
+        {
+       payment="NOT PAID";
+        }
+        else if(rent_now<=0)
+        {
+             payment="PAID";
+             month_rent=0;
+        }
+        if(rent!=0)
+        {
+        total=QString::number(DUE);
+
+        qy.prepare("insert into RENT_DATA(DATE,SERVICE,GAS,WATER,MAINTENANCE,OTHER,TOTAL,FLAT,RENT_TOTAL,PAYMENT)""values(:date,:service,:gas,:water,:maintenance,:other,:total,:flat,:month_rent,:payment)");
+        qy.bindValue(":date",date);
+        qy.bindValue(":service",service);
+        qy.bindValue(":gas",gas);
+        qy.bindValue(":water",water);
+        qy.bindValue(":maintenance",maintenance);
+        qy.bindValue(":other",other);
+        qy.bindValue(":total",total);
+        qy.bindValue(":flat",flat);
+        qy.bindValue(":month_rent",month_rent);
+        qy.bindValue(":payment",payment);
+
+        if(qy.exec())
+        {
+        qy3.prepare(QString("UPDATE renter set DUE=:total where FLAT=:flat and NAME IS NOT NULL"));
+        qy3.bindValue(":total",total);
+        qy3.bindValue(":flat",flat);
+        qy3.exec();
+        }
+        else
+        {
+            QMessageBox::warning(this,"RENT MENU","PLEASE CHECK MONTH");
+        }
+        }
+     else
+     {
+        QMessageBox::warning(this,"RENT MENU","PLEASE INSERT RENT AMOUNT");
+     }
+    }
+    }
+
+    hide();
+    renter_menu r;
+    r.setModal(true);
+    r.exec();
+
+
+}
+
+    }
 
 }
 

@@ -67,7 +67,7 @@ if(n!=0)
                ui->label_strength->setPalette(palette);
 
        }
-        else if(((hasLower || hasUpper)&& hasDigit && (n >= 8))||n>=20)
+        else if(((hasLower || hasUpper|| hasDigit) && (n >= 8))||n>=20)
            {
                     ui->label_strength->setText("MODERATE");
                        accept=true;
@@ -87,18 +87,56 @@ if(n!=0)
            ui->label_strength->setPalette(palette);
 
        }
+
+
+
+
+
+
 }
 else
 {
     ui->label_strength->setText("");
 }
+QString username=ui->lineEdit_si_username->text();
+ int userlen = username.length();
+ if(userlen!=0)
+ {
+    bool upper=false;
+
+     for(int i=0;i<userlen;i++)
+     {
+         if(username[i]==username[i].toUpper())
+         {
+             upper=true;
+         }
+     }
+     if(upper==true)
+    {
+     ui->label_caps_lock->setText("ONLY LOWERCASE ACCEPTABLE");
+     QPalette palette = ui->label_caps_lock->palette();
+     palette.setColor(ui->label_caps_lock->foregroundRole(), Qt::darkYellow);
+     ui->label_caps_lock->setPalette(palette);
+    }
+     else
+     {
+          ui->label_caps_lock->setText("");
+     }
+
+
+ }
+ else
+ {
+     ui->label_caps_lock->setText("");
+ }
+
 }
 
 
 void signup_form::on_pushButton_SIGNUP_clicked()
 {
     QSqlDatabase db= QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("C:/sqlitestudio/database/faisal_sql.sqlite");
+ db.setDatabaseName("HOME.sqlite");
 
 
 
@@ -177,5 +215,11 @@ void signup_form::on_pushButton_eye_released()
     ui->pushButton_eye->setStyleSheet("image: url(:/resources/resources/eye_off.jpg);");
     ui->lineEdit_2->setEchoMode(QLineEdit::Password);
      ui->lineEdit_CONFIRM->setEchoMode(QLineEdit::Password);
+}
+
+
+void signup_form::on_pushButton_info_clicked()
+{
+   QMessageBox::information(0, "SIGN UP","\n->Username only lowercase acceptable\n->password length should contain a uppercase or lowercase\n  combined with digits and special symbol\n" );
 }
 

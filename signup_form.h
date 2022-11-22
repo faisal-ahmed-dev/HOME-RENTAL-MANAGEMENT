@@ -29,6 +29,8 @@ private slots:
 
     void on_pushButton_eye_released();
 
+    void on_pushButton_info_clicked();
+
 private:
     Ui::signup_form *ui;
 };

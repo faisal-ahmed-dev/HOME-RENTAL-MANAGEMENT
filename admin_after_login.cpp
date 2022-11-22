@@ -14,6 +14,7 @@
 #include<admin_login.h>
 #include<profile.h>
 #include<about.h>
+#include<notepad.h>
 admin_after_login::admin_after_login(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::admin_after_login)
@@ -29,7 +30,16 @@ admin_after_login::admin_after_login(QWidget *parent) :
             if(qy.next())
             {
             ui->label_name->setText(qy.value(0).toString());
+            QString welcome=qy.value(0).toString();
+            if(welcome=="")
+            {
+                ui->label_name->setText("WELCOME");
+            }
            }
+            else
+            {
+                ui->label_name->setText("WELCOME");
+            }
             qy1.prepare("SELECT * FROM LOGIN_TIME ORDER BY SERIAL DESC LIMIT 1");
             qy1.exec();
             if(qy1.next())
@@ -174,6 +184,26 @@ void admin_after_login::on_pushButton_ABOUT_clicked()
 {
     hide();
     ABOUT a;
+    a.setModal(true);
+    a.exec();
+}
+
+
+void admin_after_login::on_pushButton_NOTEPAD_clicked()
+{
+    hide();
+    notepad a;
+    a.setModal(true);
+    a.exec();
+
+
+}
+
+
+void admin_after_login::on_pushButton_notepad_pic_clicked()
+{
+    hide();
+    notepad a;
     a.setModal(true);
     a.exec();
 }

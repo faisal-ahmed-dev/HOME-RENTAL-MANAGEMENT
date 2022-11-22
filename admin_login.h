@@ -21,6 +21,10 @@ private slots:
 
     void on_pushButton_SIGNUP_clicked();
 
+    void on_pushButton_eye_pressed();
+
+    void on_pushButton_eye_released();
+
 private:
     Ui::admin_login *ui;
 };

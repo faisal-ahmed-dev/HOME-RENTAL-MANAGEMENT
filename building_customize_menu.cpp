@@ -34,15 +34,15 @@ building_customize_menu::~building_customize_menu()
 
 void building_customize_menu::on_pushButton_ADMIT_clicked()
 {
-    QString FLOOR=ui->lineEdit_FLOOR->text();
+    int FLOOR=ui->lineEdit_FLOOR->text().toInt();
     QString a;
     QString FLAT=ui->lineEdit_FLAT->text().toUpper();
     QString name=ui->lineEdit_BUILD_NAME->text();
     QString address=ui->lineEdit_ADDRESS->text();
     QString type=ui->textEdit->toPlainText();
     QSqlDatabase db= QSqlDatabase::addDatabase("QSQLITE","myconnect");
-     db.setDatabaseName("C:/sqlitestudio/database/faisal_sql.sqlite");
-     if(FLAT==""||FLOOR=="")
+  db.setDatabaseName("HOME.sqlite");
+     if(FLAT==""||FLOOR==0)
      {
          QMessageBox::warning(this,"BUILDING","PLEASE INSERT DATA");
      }
@@ -61,11 +61,12 @@ void building_customize_menu::on_pushButton_ADMIT_clicked()
 
          qy1.prepare(QString("DELETE FROM renter"));
          qy1.exec();
-    for(char i='1';i<=FLOOR;i++)
+    for(int i=1;i<=FLOOR;i++)
     {
         for(char j='A';j<=FLAT;j++)
         {
-          a=i;
+          QString a=QString::number(i);
+
           a=a+j;
             qy.prepare("insert into renter(FLAT)""values(:i)");
             qy.bindValue(":i",a);
@@ -118,6 +119,13 @@ void building_customize_menu::on_pushButton_EDIT_clicked()
     {
         QMessageBox::warning(this,"BUILDING","query not successfull");
     }
+
+}
+
+
+void building_customize_menu::on_pushButton_info_clicked()
+{
+    QMessageBox::information(0, "BUIDLING","\n->Give FLOOR as you want like 9 or 10 etc\n->FLAT option requires how many flats do you want in a floor\n  A- 1 flat in a floor\n  B- 2 flats in a floor\n  C- 3 flats in a floor\n  D- 4 flat in a floor\n  And so on" );
 
 }
 

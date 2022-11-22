@@ -17,7 +17,7 @@ TOLET::TOLET(QWidget *parent) :
 {
     ui->setupUi(this);
     QSqlDatabase db= QSqlDatabase::addDatabase("QSQLITE","myconnect");
-   db.setDatabaseName("C:/sqlitestudio/database/faisal_sql.sqlite");
+db.setDatabaseName("HOME.sqlite");
    if(db.open())
    {
 

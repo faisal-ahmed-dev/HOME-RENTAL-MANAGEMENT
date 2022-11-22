@@ -151,6 +151,11 @@ void profile::on_pushButton_EDIT_clicked()
     {
          QMessageBox::warning(this,"database","PLEASE INSERT USERNAME");
     }
+    else if(old_pass=="")
+    {
+        QMessageBox::warning(this,"database","PLEASE INSERT PASSWORD");
+        return;
+    }
     else if(!qy.exec())
     {
          QMessageBox::warning(this,"Login Form","UNSUCCESSFULL IN QUERY");

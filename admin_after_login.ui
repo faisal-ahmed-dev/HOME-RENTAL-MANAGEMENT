@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>HOME RENTAL MANAGEMENT SYSTEM</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
@@ -96,8 +99,8 @@
   <widget class="QLabel" name="label_TOLET">
    <property name="geometry">
     <rect>
-     <x>670</x>
-     <y>150</y>
+     <x>690</x>
+     <y>190</y>
      <width>51</width>
      <height>20</height>
     </rect>
@@ -115,8 +118,8 @@
   <widget class="QTableWidget" name="tableWidget">
    <property name="geometry">
     <rect>
-     <x>650</x>
-     <y>180</y>
+     <x>670</x>
+     <y>220</y>
      <width>81</width>
      <height>211</height>
     </rect>
@@ -151,8 +154,8 @@
   <widget class="QPushButton" name="pushButton_profile">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>100</y>
+     <x>690</x>
+     <y>80</y>
      <width>51</width>
      <height>51</height>
     </rect>
@@ -167,8 +170,8 @@
   <widget class="QPushButton" name="pushButton_profile_info">
    <property name="geometry">
     <rect>
-     <x>35</x>
-     <y>160</y>
+     <x>685</x>
+     <y>140</y>
      <width>61</width>
      <height>21</height>
     </rect>
@@ -185,8 +188,8 @@
   <widget class="QLabel" name="label_username_2">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>80</y>
+     <x>680</x>
+     <y>60</y>
      <width>71</width>
      <height>16</height>
     </rect>
@@ -243,6 +246,37 @@
    </property>
    <property name="text">
     <string>ABOUT</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_NOTEPAD">
+   <property name="geometry">
+    <rect>
+     <x>35</x>
+     <y>140</y>
+     <width>61</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Notepad</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_notepad_pic">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>80</y>
+     <width>51</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">image: url(:/resources/resources/notepadico.png);
+
+border-radius: 20px;</string>
+   </property>
+   <property name="text">
+    <string/>
    </property>
   </widget>
  </widget>

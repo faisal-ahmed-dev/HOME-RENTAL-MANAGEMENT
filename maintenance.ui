@@ -19,7 +19,7 @@
      <x>10</x>
      <y>130</y>
      <width>361</width>
-     <height>321</height>
+     <height>351</height>
     </rect>
    </property>
    <property name="minimumSize">
@@ -324,7 +324,7 @@
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_18">
       <item>
-       <widget class="QPushButton" name="pushButton_clear">
+       <widget class="QPushButton" name="pushButton_ADMIT">
         <property name="text">
          <string>ADMIT</string>
         </property>
@@ -393,6 +393,19 @@
    </property>
    <property name="text">
     <string>LIST</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_clear">
+   <property name="geometry">
+    <rect>
+     <x>750</x>
+     <y>430</y>
+     <width>108</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>CLEAR ALL</string>
    </property>
   </widget>
  </widget>

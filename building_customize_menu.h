@@ -24,6 +24,8 @@ private slots:
 
     void on_pushButton_EDIT_clicked();
 
+    void on_pushButton_info_clicked();
+
 private:
     Ui::building_customize_menu *ui;
 };

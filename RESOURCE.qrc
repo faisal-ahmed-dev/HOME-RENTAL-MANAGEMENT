@@ -5,8 +5,11 @@
         <file>resources/HOME_PAGE.jpeg</file>
         <file>resources/delete-icon-980x980.png</file>
         <file>resources/password-eye-icon-401x339.png</file>
-        <file>resources/vecteezy_preview-show-interface-icon_6086018.jpg</file>
         <file>resources/eye_off.jpg</file>
         <file>resources/home-icon-png-159372.png</file>
+        <file>resources/house_rental_icon.ico</file>
+        <file>resources/informaionicon.png</file>
+        <file>resources/nf3_(109).jpg</file>
+        <file>resources/notepadico.png</file>
     </qresource>
 </RCC>
