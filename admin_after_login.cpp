@@ -49,33 +49,7 @@ admin_after_login::admin_after_login(QWidget *parent) :
            }
 
 
-               QSqlQuery query(QSqlDatabase::database("myconnect"));
 
-                query.prepare("select FLAT from renter WHERE NAME IS NULL or NAME=:NULL");
-                query.bindValue(":NULL","");
-               if(!query.exec())
-               {
-                    QMessageBox::warning(this,"building","DATABASE QUERY NOT OPENED");
-               }
-               else {
-                     ui->tableWidget->setColumnCount(1);
-                   QStringList labels;
-                   labels<<"FLAT";
-                   ui->tableWidget->setHorizontalHeaderLabels(labels);
-                   ui->tableWidget->setColumnWidth(0,30);
-                   int rowcount=0;
-                    QString val=NULL;
-                   while(query.next())
-                   {
-                       ui->tableWidget->insertRow(rowcount);
-                        QTableWidgetItem *select= new QTableWidgetItem;
-                        select->setText(query.value(0).toString());
-                        ui->tableWidget->setItem(rowcount,0,select);
-
-                        rowcount++;
-                   }
-
-               }
 
 
 
@@ -206,5 +180,50 @@ void admin_after_login::on_pushButton_notepad_pic_clicked()
     notepad a;
     a.setModal(true);
     a.exec();
+}
+
+
+void admin_after_login::on_pushButton_building_pic_clicked()
+{
+    hide();
+     building_customize_menu bu;
+     bu.setModal(true);
+     bu.exec();
+}
+
+
+void admin_after_login::on_pushButton_customize_pic_clicked()
+{
+    hide();
+    renter_menu ru;
+    ru.setModal(true);
+    ru.exec();
+}
+
+
+void admin_after_login::on_pushButton_search_pic_clicked()
+{
+    hide();
+   renter_search re;
+   re.setModal(true);
+   re.exec();
+}
+
+
+void admin_after_login::on_pushButton_trans_pic_clicked()
+{
+    hide();
+   TRANSACTIONS t;
+   t.setModal(true);
+   t.exec();
+}
+
+
+void admin_after_login::on_pushButton_maintenance_pic_clicked()
+{
+    hide();
+    MAINTENANCE m;
+    m.setModal(true);
+    m.exec();
 }
 

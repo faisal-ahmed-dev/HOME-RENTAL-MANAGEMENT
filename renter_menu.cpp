@@ -19,19 +19,20 @@ renter_menu::renter_menu(QWidget *parent) :
     hide();
     ui->setupUi(this);
     ui->groupBox_2->setEnabled(false);
+     ui->groupBox_2->setStyleSheet("background-color: darkgrey");
+
     QTimer *timer=new QTimer(this);
     connect(timer,SIGNAL(timeout()),this,SLOT(show()));
     timer->start();
      QSqlDatabase db= QSqlDatabase::addDatabase("QSQLITE","myconnect");
- db.setDatabaseName("HOME.sqlite");
-    if(db.open())
+     db.setDatabaseName("HOME.sqlite");   if(db.open())
     {
 
         QSqlQuery query(db);
         QString str ="select * from renter ";
         if(!query.exec(str))
         {
-             QMessageBox::warning(this,"RENTER","DATABASE QUERY NOT OPENED");
+             QMessageBox::warning(0,"RENTER","DATABASE QUERY NOT OPENED");
         }
         else {
             ui->tableWidget->setColumnCount(9);
@@ -95,7 +96,7 @@ renter_menu::renter_menu(QWidget *parent) :
     }
     else
     {
-        QMessageBox::warning(this,"RENTER","DATABASE NOT OPENED");
+        QMessageBox::warning(0,"RENTER","DATABASE NOT OPENED");
     }
     QDateTime dateTime = dateTime.currentDateTime();
      ui->dateEdit->setDateTime(dateTime);
@@ -126,13 +127,18 @@ void renter_menu::show()
         ui->groupBox_2->setEnabled(true);
         ui->label_RENTFLAT->setEnabled(true);
         ui->lineEdit_RENTFLAT->setEnabled(true);
-
+        ui->label_RENTFLAT->setStyleSheet("color: rgb(229, 203, 148);background-color: rgb(15, 22, 40)");
+        ui->lineEdit_RENTFLAT->setStyleSheet("#lineEdit_RENTFLAT{  border:none;background:#0F1628; color:#E5CB94; border-radius:16px; border: 1px solid yellow ; border-color: #E5CB94;border-radius: 12px;padding: 1px;} #lineEdit_RENTFLAT:hover { border:none; background:#E5CB94;color:#0F1628;border-radius:16px; border: 2px solid blue ; border-color: #0F1628; border-radius: 12px;padding: 1px; }");
+         ui->groupBox_2->setStyleSheet("#groupBox_2{border:none; border-radius:16 px;border: 2px solid yellow ; border-color: #E5CB94;border-radius: 12px;padding: 3 px;}");
     }
     else if(ui->radioButton_ALL->isChecked())
     {
         ui->groupBox_2->setEnabled(true);
         ui->label_RENTFLAT->setEnabled(false);
         ui->lineEdit_RENTFLAT->setEnabled(false);
+        ui->label_RENTFLAT->setStyleSheet("background-color: darkgrey");
+        ui->lineEdit_RENTFLAT->setStyleSheet("background-color: darkgrey");
+          ui->groupBox_2->setStyleSheet("#groupBox_2{border:none; border-radius:16 px;border: 2px solid yellow ; border-color: #E5CB94;border-radius: 12px;padding: 3 px;}");
     }
 
 
@@ -145,7 +151,6 @@ void renter_menu::on_pushButton_3_clicked()
 
     QSqlDatabase db= QSqlDatabase::addDatabase("QSQLITE");
  db.setDatabaseName("HOME.sqlite");
-
 
      if(db.open())
      {
@@ -171,13 +176,13 @@ void renter_menu::on_pushButton_3_clicked()
        qy.bindValue(":join",join);
        if(flat==""||H_ADDRESS==""||MOBILE==""||nid==""||name==""||rent==""||advance==""||join=="")
        {
-            QMessageBox::warning(this,"RENTER","PLEASE INSERT DATA");
+            QMessageBox::warning(0,"RENTER","PLEASE INSERT DATA");
        }
 
        else if(qy.exec())
        {
 
-           QMessageBox::information(this,"RENTER","INSERTED INTO DATABASE");
+           QMessageBox::information(0,"RENTER","INSERTED INTO DATABASE");
             hide();
            renter_menu r;
            r.setModal(true);
@@ -185,12 +190,12 @@ void renter_menu::on_pushButton_3_clicked()
        }
        else
        {
-           QMessageBox::warning(this,"RENTER","NOT INSERTED INTO DATABASE");
+           QMessageBox::warning(0,"RENTER","NOT INSERTED INTO DATABASE");
        }
      }
      else
      {
-          QMessageBox::warning(this,"RENTER","DATABASE NOT OPENED");
+          QMessageBox::warning(0,"RENTER","DATABASE NOT OPENED");
      }
 }
 
@@ -235,11 +240,11 @@ void renter_menu::on_pushButton_clicked()
        qy.bindValue(":join",join);
        if(flat==""||H_ADDRESS==""||MOBILE==""||nid==""||name==""||rent==""||advance==""||join=="")
        {
-            QMessageBox::warning(this,"database","PLEASE INSERT DATA");
+            QMessageBox::warning(0,"database","PLEASE INSERT DATA");
        }
        else if(qy.exec())
      {
-         QMessageBox::information(this,"building","UPDATED");
+         QMessageBox::information(0,"building","UPDATED");
          hide();
          renter_menu r;
          r.setModal(true);
@@ -247,7 +252,7 @@ void renter_menu::on_pushButton_clicked()
      }
      else
      {
-         QMessageBox::warning(this,"building","DATABASE QUERY  NOT HAPPENED");
+         QMessageBox::warning(0,"building","DATABASE QUERY  NOT HAPPENED");
      }
    // }
     //   else
@@ -275,7 +280,7 @@ void renter_menu::on_pushButton_2_clicked()
 
 
        QMessageBox::StandardButton reply;
-       reply=QMessageBox::question(this,"","DO YOU WANT SAVE THIS DATA",QMessageBox::Yes | QMessageBox::No |QMessageBox::Cancel);
+       reply=QMessageBox::question(0,"","DO YOU WANT SAVE THIS DATA",QMessageBox::Yes | QMessageBox::No |QMessageBox::Cancel);
 
        if(reply==QMessageBox::Yes)
        {
@@ -293,7 +298,7 @@ void renter_menu::on_pushButton_2_clicked()
 
      if(flat==""||H_ADDRESS==""||MOBILE==""||nid==""||name==""||rent==""||advance==""||join=="")
      {
-          QMessageBox::warning(this,"database","PLEASE INSERT DATA");
+          QMessageBox::warning(0,"database","PLEASE INSERT DATA");
      }
 
      else if(qy.exec())
@@ -311,7 +316,7 @@ void renter_menu::on_pushButton_2_clicked()
          qy3.bindValue(":ZERO",0);
          qy3.bindValue(":flat",flat);
          qy3.exec();
-         QMessageBox::information(this,"database","DELETED");
+         QMessageBox::information(0,"database","DELETED");
           hide();
          renter_menu r;
          r.setModal(true);
@@ -319,7 +324,7 @@ void renter_menu::on_pushButton_2_clicked()
      }
      else
      {
-         QMessageBox::warning(this,"database","NOT INSERTED INTO DATABASE");
+         QMessageBox::warning(0,"database","NOT INSERTED INTO DATABASE");
      }
     }
 
@@ -340,7 +345,7 @@ void renter_menu::on_pushButton_2_clicked()
                 qy1.exec();
                 }
 
-                QMessageBox::information(this,"database","PERMANENT DELETE");
+                QMessageBox::information(0,"database","PERMANENT DELETE");
                 hide();
                renter_menu r;
                r.setModal(true);
@@ -348,7 +353,7 @@ void renter_menu::on_pushButton_2_clicked()
             }
             else
             {
-                 QMessageBox::warning(this,"database","QUERY UNSUCCESSFULL");
+                 QMessageBox::warning(0,"database","QUERY UNSUCCESSFULL");
             }
 
        }
@@ -387,7 +392,7 @@ void renter_menu::on_tableWidget_activated(const QModelIndex &index)
   }
   else
   {
-      QMessageBox::warning(this,"Login Form","UNSUCCESSFULL IN QUERY");
+      QMessageBox::warning(0,"Login Form","UNSUCCESSFULL IN QUERY");
   }
 }
 
@@ -427,7 +432,7 @@ void renter_menu::on_pushButton_ADMIT_clicked()
 {
 
     QMessageBox::StandardButton reply;
-    reply=QMessageBox::question(this,"RENTER MENU","ARE YOU SURE WANT TO ADD BILLS?",QMessageBox::Yes| QMessageBox::No|QMessageBox::Cancel);
+    reply=QMessageBox::question(0,"RENTER MENU","ARE YOU SURE WANT TO ADD BILLS?",QMessageBox::Yes| QMessageBox::No|QMessageBox::Cancel);
 
     if(reply==QMessageBox::Yes){
 if(ui->radioButton_ALL->isChecked())
@@ -553,7 +558,7 @@ else if(ui->radioButton_ONE->isChecked())
     QSqlQuery qy(QSqlDatabase::database("myconnect"));
     if(rentflat=="")
     {
-        QMessageBox::warning(this,"RENT MENU","PLEASE INSERT FLAT");
+        QMessageBox::warning(0,"RENT MENU","PLEASE INSERT FLAT");
         return;
     }
     QSqlQuery qy2(QSqlDatabase::database("myconnect"));
@@ -647,12 +652,12 @@ else if(ui->radioButton_ONE->isChecked())
         }
         else
         {
-            QMessageBox::warning(this,"RENT MENU","PLEASE CHECK MONTH");
+            QMessageBox::warning(0,"RENT MENU","PLEASE CHECK MONTH");
         }
         }
      else
      {
-        QMessageBox::warning(this,"RENT MENU","PLEASE INSERT RENT AMOUNT");
+        QMessageBox::warning(0,"RENT MENU","PLEASE INSERT RENT AMOUNT");
      }
     }
     }

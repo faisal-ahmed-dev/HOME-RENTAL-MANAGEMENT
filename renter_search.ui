@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>RENTER SEARCH</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(15, 22, 40);</string>
+  </property>
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
@@ -25,13 +28,46 @@
    <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
      <widget class="QLabel" name="label">
+      <property name="styleSheet">
+       <string notr="true">color: rgb(229, 203, 148);</string>
+      </property>
       <property name="text">
        <string>SEARCH BY NID:     </string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit_search"/>
+     <widget class="QLineEdit" name="lineEdit_search">
+      <property name="styleSheet">
+       <string notr="true">
+#lineEdit_search
+{
+	border:none;
+	background:#0F1628;
+	color:#E5CB94;
+	border-radius:16px;
+	border: 1px solid yellow ;
+border-color: #E5CB94;
+  border-radius: 12px;
+  padding: 3 px;
+}
+#lineEdit_search:hover
+{
+	border:none;
+	background:#E5CB94;
+	color:#0F1628;
+	border-radius:16 px;
+	border: 2px solid blue ;
+border-color: #0F1628;
+  border-radius: 6px;
+  padding: 3 px;
+}
+</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>
@@ -43,6 +79,32 @@
      <width>91</width>
      <height>31</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+#pushButton_search
+{
+	border:none;
+	background:#0F1628;
+	color:#E5CB94;
+	border-radius:16px;
+	border: 1px solid yellow ;
+border-color: #E5CB94;
+  border-radius: 12px;
+  padding: 3 px;
+}
+#pushButton_search:hover
+{
+	border:none;
+background:floral white;
+	color:#0F1628;
+	border-radius:16 px;
+	border: 2px solid blue ;
+border-color: #0F1628;
+  border-radius: 6px;
+  padding: 3 px;
+}
+</string>
    </property>
    <property name="text">
     <string>SEARCH</string>
@@ -56,6 +118,32 @@
      <width>81</width>
      <height>31</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+#pushButton_BACK
+{
+	border:none;
+	background:#0F1628;
+	color:#E5CB94;
+	border-radius:16px;
+	border: 2px solid yellow ;
+border-color: #E5CB94;
+  border-radius: 6px;
+  padding: 3 px;
+}
+#pushButton_BACK:hover
+{
+	border:none;
+	background:floral white;
+	color:#0F1628;
+	border-radius:16 px;
+	border: 2px solid blue ;
+border-color: #0F1628;
+  border-radius: 6px;
+  padding: 3 px;
+}
+</string>
    </property>
    <property name="text">
     <string>BACK</string>
@@ -74,6 +162,9 @@
     <font>
      <bold>true</bold>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(229, 203, 148);</string>
    </property>
    <property name="text">
     <string>INFORMATION</string>
@@ -150,6 +241,9 @@
         <property name="autoFillBackground">
          <bool>false</bool>
         </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(229, 203, 148);</string>
+        </property>
         <property name="text">
          <string>FLAT</string>
         </property>
@@ -168,6 +262,24 @@
           <width>121</width>
           <height>26</height>
          </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">
+
+
+	border:none;
+	background:#E5CB94;
+	color:#0F1628;
+	border-radius:16 px;
+	border: 2px solid blue ;
+border-color: #0F1628;
+  border-radius: 6px;
+  padding: 3 px;
+
+</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
         <property name="readOnly">
          <bool>true</bool>
@@ -195,6 +307,9 @@
           <height>20</height>
          </size>
         </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(229, 203, 148);</string>
+        </property>
         <property name="text">
          <string>NAME</string>
         </property>
@@ -219,6 +334,20 @@
           <width>16777215</width>
           <height>16777215</height>
          </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">	border:none;
+	background:#E5CB94;
+	color:#0F1628;
+	border-radius:16 px;
+	border: 2px solid blue ;
+border-color: #0F1628;
+  border-radius: 6px;
+  padding: 3 px;
+</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
         <property name="readOnly">
          <bool>true</bool>
@@ -246,6 +375,9 @@
           <height>26</height>
          </size>
         </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(229, 203, 148);</string>
+        </property>
         <property name="text">
          <string>MOBILE</string>
         </property>
@@ -264,6 +396,20 @@
           <width>121</width>
           <height>26</height>
          </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">	border:none;
+	background:#E5CB94;
+	color:#0F1628;
+	border-radius:16 px;
+	border: 2px solid blue ;
+border-color: #0F1628;
+  border-radius: 6px;
+  padding: 3 px;
+</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
         <property name="readOnly">
          <bool>true</bool>
@@ -291,6 +437,9 @@
           <height>26</height>
          </size>
         </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(229, 203, 148);</string>
+        </property>
         <property name="text">
          <string>NID</string>
         </property>
@@ -310,8 +459,22 @@
           <height>26</height>
          </size>
         </property>
+        <property name="styleSheet">
+         <string notr="true">	border:none;
+	background:#E5CB94;
+	color:#0F1628;
+	border-radius:16 px;
+	border: 2px solid blue ;
+border-color: #0F1628;
+  border-radius: 6px;
+  padding: 3 px;
+</string>
+        </property>
         <property name="text">
          <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
         <property name="readOnly">
          <bool>true</bool>
@@ -339,6 +502,9 @@
           <height>26</height>
          </size>
         </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(229, 203, 148);</string>
+        </property>
         <property name="text">
          <string>HOME ADDRESS</string>
         </property>
@@ -358,8 +524,22 @@
           <height>26</height>
          </size>
         </property>
+        <property name="styleSheet">
+         <string notr="true">	border:none;
+	background:#E5CB94;
+	color:#0F1628;
+	border-radius:16 px;
+	border: 2px solid blue ;
+border-color: #0F1628;
+  border-radius: 6px;
+  padding: 3 px;
+</string>
+        </property>
         <property name="text">
          <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
         <property name="readOnly">
          <bool>true</bool>
@@ -387,6 +567,9 @@
           <height>26</height>
          </size>
         </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(229, 203, 148);</string>
+        </property>
         <property name="text">
          <string>RENT AMOUNT</string>
         </property>
@@ -406,8 +589,22 @@
           <height>26</height>
          </size>
         </property>
+        <property name="styleSheet">
+         <string notr="true">	border:none;
+	background:#E5CB94;
+	color:#0F1628;
+	border-radius:16 px;
+	border: 2px solid blue ;
+border-color: #0F1628;
+  border-radius: 6px;
+  padding: 3 px;
+</string>
+        </property>
         <property name="text">
          <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
         <property name="readOnly">
          <bool>true</bool>
@@ -435,6 +632,9 @@
           <height>26</height>
          </size>
         </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(229, 203, 148);</string>
+        </property>
         <property name="text">
          <string>DUE</string>
         </property>
@@ -454,8 +654,22 @@
           <height>26</height>
          </size>
         </property>
+        <property name="styleSheet">
+         <string notr="true">	border:none;
+	background:#E5CB94;
+	color:#0F1628;
+	border-radius:16 px;
+	border: 2px solid blue ;
+border-color: #0F1628;
+  border-radius: 6px;
+  padding: 3 px;
+</string>
+        </property>
         <property name="text">
          <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
         <property name="readOnly">
          <bool>true</bool>
@@ -483,6 +697,9 @@
           <height>26</height>
          </size>
         </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(229, 203, 148);</string>
+        </property>
         <property name="text">
          <string>ADVANCE</string>
         </property>
@@ -502,8 +719,22 @@
           <height>26</height>
          </size>
         </property>
+        <property name="styleSheet">
+         <string notr="true">	border:none;
+	background:#E5CB94;
+	color:#0F1628;
+	border-radius:16 px;
+	border: 2px solid blue ;
+border-color: #0F1628;
+  border-radius: 6px;
+  padding: 3 px;
+</string>
+        </property>
         <property name="text">
          <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
         <property name="readOnly">
          <bool>true</bool>
@@ -531,6 +762,9 @@
           <height>26</height>
          </size>
         </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(229, 203, 148);</string>
+        </property>
         <property name="text">
          <string>JOINING DATE</string>
         </property>
@@ -550,8 +784,22 @@
           <height>26</height>
          </size>
         </property>
+        <property name="styleSheet">
+         <string notr="true">	border:none;
+	background:#E5CB94;
+	color:#0F1628;
+	border-radius:16 px;
+	border: 2px solid blue ;
+border-color: #0F1628;
+  border-radius: 6px;
+  padding: 3 px;
+</string>
+        </property>
         <property name="text">
          <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
         <property name="readOnly">
          <bool>true</bool>
@@ -579,13 +827,20 @@
         <bold>true</bold>
        </font>
       </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(229, 203, 148);</string>
+      </property>
       <property name="text">
        <string>MONTH BILL</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QTableWidget" name="tableWidget_2"/>
+     <widget class="QTableWidget" name="tableWidget_2">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(229, 203, 148);</string>
+      </property>
+     </widget>
     </item>
     <item>
      <widget class="QLabel" name="label_9">
@@ -594,6 +849,9 @@
         <bold>true</bold>
        </font>
       </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(229, 203, 148);</string>
+      </property>
       <property name="text">
        <string>TRANSACTIONS</string>
       </property>
@@ -601,6 +859,9 @@
     </item>
     <item>
      <widget class="QTableWidget" name="tableWidget">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(229, 203, 148);</string>
+      </property>
       <property name="editTriggers">
        <set>QAbstractItemView::NoEditTriggers</set>
       </property>

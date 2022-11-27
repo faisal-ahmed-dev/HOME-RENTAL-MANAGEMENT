@@ -58,7 +58,7 @@ void tc::on_pushButton_back_clicked()
 void tc::on_pushButton_PRINT_clicked()
 {
     QMessageBox::StandardButton reply;
-    reply=QMessageBox::question(this,"T&C","DO YOU WANT TERMS AND CONDITIONS TO PRINT",QMessageBox::Yes | QMessageBox::No );
+    reply=QMessageBox::question(0,"T&C","DO YOU WANT TERMS AND CONDITIONS TO PRINT",QMessageBox::Yes | QMessageBox::No );
 
    if(reply==QMessageBox::Yes)
    {
@@ -91,7 +91,7 @@ void tc::on_pushButton_PRINT_clicked()
     printer.setOutputFileName("D:/"+s+".pdf");
     printer.setPageMargins(QMarginsF(6, 6, 5, 5));
     document.print(&printer);
-     QMessageBox::information(this,"T&C","TERMS AND CONDITIONS ISSUED");
+     QMessageBox::information(0,"T&C","TERMS AND CONDITIONS ISSUED");
    }
 
 }

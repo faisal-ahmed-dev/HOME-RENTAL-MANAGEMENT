@@ -63,6 +63,7 @@ void TRANSACTIONS::show()
         ui->label_money->setEnabled(true);
 
 
+
     }
     else if(ui->radioButton_advance->isChecked())
     {
@@ -82,7 +83,9 @@ void TRANSACTIONS::show()
         ui->lineEdit_search_3->setFrame(true);
         ui->lineEdit_search_3->setReadOnly(false);
         ui->label_money->setEnabled(true);
-
+         ui->groupBox->setStyleSheet("background-color: #0F1628");
+         ui->label_invoice->setStyleSheet("background-color:#0F1628");
+          ui->label_money->setStyleSheet("background-color: #0F1628");
 
     }
     else
@@ -93,7 +96,6 @@ void TRANSACTIONS::show()
         ui->lineEdit_search_3->setFrame(false);
         ui->lineEdit_search_3->setReadOnly(true);
         ui->label_money->setEnabled(false);
-
 
     }
 
@@ -112,12 +114,12 @@ void TRANSACTIONS::on_pushButton_PAYMENT_clicked()
           QString current=QDateTime::currentDateTime().toString();
 
     QSqlDatabase db= QSqlDatabase::addDatabase("QSQLITE");
-db.setDatabaseName("HOME.sqlite");
-     QDateTime dateTime = dateTime.currentDateTime();
+ db.setDatabaseName("HOME.sqlite");
+    QDateTime dateTime = dateTime.currentDateTime();
      QString dateTimeString = dateTime.toString("yyyy-MM-dd");
      if(db.open())
      {
-    QSqlQuery qy(QSqlDatabase::database("myconnect"));
+     QSqlQuery qy(QSqlDatabase::database("myconnect"));
      QSqlQuery qy1(QSqlDatabase::database("myconnect"));
      QSqlQuery qy2(QSqlDatabase::database("myconnect"));
      QSqlQuery qy3(QSqlDatabase::database("myconnect"));
@@ -139,7 +141,7 @@ db.setDatabaseName("HOME.sqlite");
      }
      if(ui->lineEdit_search_3->text()==""||ui->lineEdit_search_3->text()=="0")
      {
-           QMessageBox::warning(this,"TRANSACTIONS","PLEASE ENTER AMOUNT");
+           QMessageBox::warning(0,"TRANSACTIONS","PLEASE ENTER AMOUNT");
      }
    else if(ui->radioButton_regular->isChecked())
     {
@@ -200,9 +202,9 @@ db.setDatabaseName("HOME.sqlite");
               }
              if(qy.exec() && qy1.exec()&&qy2.exec())
              {
-                 QMessageBox::information(this,"PAYMENT","PAYMENT SUCCESSFULL");
+                 QMessageBox::information(0,"PAYMENT","PAYMENT SUCCESSFULL");
                  QMessageBox::StandardButton reply;
-                 reply=QMessageBox::question(this,"","DO YOU WANT RENT RECEIPT",QMessageBox::Yes | QMessageBox::No );
+                 reply=QMessageBox::question(0,"RENT","DO YOU WANT RENT RECEIPT",QMessageBox::Yes | QMessageBox::No );
 
                 if(reply==QMessageBox::Yes)
                 {
@@ -246,7 +248,7 @@ db.setDatabaseName("HOME.sqlite");
                  printer.setOutputFileName("D:/"+s+".pdf");
                  printer.setPageMargins(QMarginsF(6, 6, 5, 5));
                  document.print(&printer);
-                  QMessageBox::information(this,"RENT","RENT RECEIPT ISSUED");
+                  QMessageBox::information(0,"RENT","RENT RECEIPT ISSUED");
                 }
 
 
@@ -254,28 +256,28 @@ db.setDatabaseName("HOME.sqlite");
              }
              else
              {
-                 QMessageBox::warning(this,"RENT","RENTER NOT FOUND");
+                 QMessageBox::warning(0,"RENT","RENTER NOT FOUND");
              }
                 }
             else
             {
-                QMessageBox::warning(this,"RENT","PAYMENT IS MORE THAN RENT");
+                QMessageBox::warning(0,"RENT","PAYMENT IS MORE THAN RENT");
             }
              }
             else
            {
-               QMessageBox::warning(this,"RENT","PAYMENT ALREADY PAID");
+               QMessageBox::warning(0,"RENT","PAYMENT ALREADY PAID");
            }
           }
 
        else
        {
-           QMessageBox::warning(this,"RENT","RENTER NOT FOUND");
+           QMessageBox::warning(0,"RENT","RENTER NOT FOUND");
        }
    }
    else
    {
-        QMessageBox::warning(this,"RENT","UNSUCCESSFULL IN QUERY");
+        QMessageBox::warning(0,"RENT","UNSUCCESSFULL IN QUERY");
    }
      }
 
@@ -308,9 +310,9 @@ db.setDatabaseName("HOME.sqlite");
          qy.bindValue(":ad",ad);
          if(qy.exec())
          {
-             QMessageBox::information(this,"PAYMENT","PAYMENT SUCCESSFULL");
+             QMessageBox::information(0,"PAYMENT","PAYMENT SUCCESSFULL");
              QMessageBox::StandardButton reply;
-             reply=QMessageBox::question(this,"PAYMENT","DO YOU WANT RENT RECEIPT",QMessageBox::Yes | QMessageBox::No );
+             reply=QMessageBox::question(0,"PAYMENT","DO YOU WANT RENT RECEIPT",QMessageBox::Yes | QMessageBox::No );
 
             if(reply==QMessageBox::Yes)
             {
@@ -353,24 +355,24 @@ db.setDatabaseName("HOME.sqlite");
              printer.setOutputFileName("D:/"+s+".pdf");
              printer.setPageMargins(QMarginsF(6, 6, 5, 5));
              document.print(&printer);
-              QMessageBox::information(this,"RENT","RENT RECEIPT ISSUED");
+              QMessageBox::information(0,"RENT","RENT RECEIPT ISSUED");
             }
 
          }
          else
          {
-             QMessageBox::warning(this,"RENT","query not happen");
+             QMessageBox::warning(0,"RENT","query not happen");
          }
         }
        else
     {
-        QMessageBox::warning(this,"RENT","PLEASE CLEAR DUE FIRST");
+        QMessageBox::warning(0,"RENT","PLEASE CLEAR DUE FIRST");
     }
     }
     else
     {
         here:
-        QMessageBox::warning(this,"RENT","RENTER NOT FOUND");
+        QMessageBox::warning(0,"RENT","RENTER NOT FOUND");
     }
     }
     else if(ui->radioButton_MAINTENANCE->isChecked())
@@ -404,9 +406,9 @@ db.setDatabaseName("HOME.sqlite");
          qy1.bindValue(":invoice",invoice);
          if(qy1.exec()&&qy2.exec())
          {
-             QMessageBox::information(this,"RENT","PAYMENT SUCCESSFULL");
+             QMessageBox::information(0,"RENT","PAYMENT SUCCESSFULL");
              QMessageBox::StandardButton reply;
-             reply=QMessageBox::question(this,"PAYMENT","DO YOU WANT RENT RECEIPT",QMessageBox::Yes | QMessageBox::No );
+             reply=QMessageBox::question(0,"PAYMENT","DO YOU WANT RENT RECEIPT",QMessageBox::Yes | QMessageBox::No );
 
             if(reply==QMessageBox::Yes)
             {
@@ -449,12 +451,12 @@ db.setDatabaseName("HOME.sqlite");
              printer.setOutputFileName("D:/"+s+".pdf");
              printer.setPageMargins(QMarginsF(6, 6, 5, 5));
              document.print(&printer);
-              QMessageBox::information(this,"RENT","RENT RECEIPT ISSUED");
+              QMessageBox::information(0,"RENT","RENT RECEIPT ISSUED");
             }
          }
          else
          {
-             QMessageBox::warning(this,"RENT","SORRY ACCEPT FULL PAYMENT ONLY");
+             QMessageBox::warning(0,"RENT","SORRY ACCEPT FULL PAYMENT ONLY");
          }
         }
         else
@@ -466,9 +468,9 @@ db.setDatabaseName("HOME.sqlite");
 
             if(qy1.exec())
             {
-                QMessageBox::information(this,"RENT","PAYMENT SUCCESSFULL");
+                QMessageBox::information(0,"RENT","PAYMENT SUCCESSFULL");
                 QMessageBox::StandardButton reply;
-                reply=QMessageBox::question(this,"PAYMENT","DO YOU WANT RENT RECEIPT",QMessageBox::Yes | QMessageBox::No );
+                reply=QMessageBox::question(0,"PAYMENT","DO YOU WANT RENT RECEIPT",QMessageBox::Yes | QMessageBox::No );
 
                if(reply==QMessageBox::Yes)
                {
@@ -511,35 +513,35 @@ db.setDatabaseName("HOME.sqlite");
                 printer.setOutputFileName("D:/"+s+".pdf");
                 printer.setPageMargins(QMarginsF(6, 6, 5, 5));
                 document.print(&printer);
-                 QMessageBox::information(this,"RENT","RENT RECEIPT ISSUED");
+                 QMessageBox::information(0,"RENT","RENT RECEIPT ISSUED");
                }
             }
             else
             {
-                QMessageBox::warning(this,"RENT","RENTER QUERY NOT HAPPENNED");
+                QMessageBox::warning(0,"RENT","RENTER QUERY NOT HAPPENNED");
             }
         }
         }
            else
             {
-                QMessageBox::warning(this,"RENT","PAYMENT IS MORE THAN BILL");
+                QMessageBox::warning(0,"RENT","PAYMENT IS MORE THAN BILL");
             }
          }
          else
          {
-              QMessageBox::warning(this,"RENT","PAYMENT IS ALREADY PAID");
+              QMessageBox::warning(0,"RENT","PAYMENT IS ALREADY PAID");
          }
     }
     else
     {
-        QMessageBox::warning(this,"","PLEASE SELECT PAYMENT TYPE");
+        QMessageBox::warning(0,"","PLEASE SELECT PAYMENT TYPE");
     }
 
      }
 
      else
      {
-         QMessageBox::warning(this,"","database not opened");
+         QMessageBox::warning(0,"","database not opened");
      }
 }
 
@@ -575,7 +577,7 @@ void TRANSACTIONS::on_pushButton_SEARCH_clicked()
            qy3.prepare("select * from ADVANCE where FLAT='"+val+"'");
            if(!qy1.exec())
            {
-                QMessageBox::warning(this,"building","DATABASE QUERY NOT OPENED");
+                QMessageBox::warning(0,"building","DATABASE QUERY NOT OPENED");
            }
            else {
 
@@ -646,7 +648,7 @@ void TRANSACTIONS::on_pushButton_SEARCH_clicked()
                 }
            if(!qy2.exec())
            {
-                QMessageBox::warning(this,"building","DATABASE QUERY NOT OPENED");
+                QMessageBox::warning(0,"building","DATABASE QUERY NOT OPENED");
            }
            else {
                while (ui->tableWidget_2->rowCount() > 0)
@@ -693,7 +695,7 @@ void TRANSACTIONS::on_pushButton_SEARCH_clicked()
 
            if(!qy3.exec())
            {
-                QMessageBox::warning(this,"building","DATABASE QUERY NOT OPENED");
+                QMessageBox::warning(0,"building","DATABASE QUERY NOT OPENED");
            }
            else {
                while (ui->tableWidget_3->rowCount() > 0)
@@ -735,11 +737,11 @@ void TRANSACTIONS::on_pushButton_SEARCH_clicked()
        }
        else
        {
-           QMessageBox::warning(this,"building","RENTER NOT FOUND");
+           QMessageBox::warning(0,"building","RENTER NOT FOUND");
        }
 }
    else
    {
-       QMessageBox::warning(this,"building","RENTER NOT FOUND");
+       QMessageBox::warning(0,"building","RENTER NOT FOUND");
    }
 }

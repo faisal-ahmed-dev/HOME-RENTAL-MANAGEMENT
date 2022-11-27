@@ -6,227 +6,543 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>757</width>
-    <height>491</height>
+    <width>819</width>
+    <height>583</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>SIGNUP FORM</string>
   </property>
-  <widget class="QPushButton" name="pushButton_SIGNUP">
-   <property name="geometry">
-    <rect>
-     <x>330</x>
-     <y>360</y>
-     <width>80</width>
-     <height>24</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>SIGNUP</string>
-   </property>
-  </widget>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(15, 22, 40);</string>
+  </property>
   <widget class="QPushButton" name="pushButton_back">
    <property name="geometry">
     <rect>
-     <x>620</x>
-     <y>400</y>
+     <x>700</x>
+     <y>510</y>
      <width>71</width>
-     <height>21</height>
+     <height>31</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#pushButton_back
+{
+	border:none;
+	background:#0F1628;
+	color:#E5CB94;
+	border-radius:16px;
+	border: 1px solid yellow ;
+border-color: #E5CB94;
+  border-radius: 12px;
+  padding: 3px;
+}
+
+#pushButton_back:hover
+{
+	border:none;
+	background:floral white;
+	color:#0F1628;
+	border-radius:16px;
+	border: 2px solid blue ;
+border-color: #0F1628;
+  border-radius: 12px;
+  padding: 1px;
+}</string>
    </property>
    <property name="text">
     <string>BACK</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_3">
+  <widget class="QFrame" name="frame">
    <property name="geometry">
     <rect>
-     <x>270</x>
-     <y>60</y>
-     <width>101</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="text">
-    <string>SIGNUP FORM</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_strength">
-   <property name="geometry">
-    <rect>
-     <x>460</x>
-     <y>188</y>
-     <width>181</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Segoe UI</family>
-     <pointsize>9</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_eye">
-   <property name="geometry">
-    <rect>
-     <x>450</x>
-     <y>230</y>
-     <width>21</width>
-     <height>21</height>
+     <x>30</x>
+     <y>100</y>
+     <width>741</width>
+     <height>371</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">image: url(:/resources/resources/eye_off.jpg);</string>
+    <string notr="true">
+#frame
+{
+	border:none;
+	background:#E5CB94;
+	color:#0F1628;
+	border-radius:16 px;
+	border: 2px solid blue ;
+border-color: #0F1628;
+  border-radius: 6px;
+  padding: 3 px;
+}</string>
    </property>
-   <property name="text">
-    <string/>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
    </property>
-  </widget>
-  <widget class="QWidget" name="layoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>170</x>
-     <y>140</y>
-     <width>271</width>
-     <height>121</height>
-    </rect>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout">
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_4">
-      <item>
-       <widget class="QLabel" name="label_password_3">
-        <property name="text">
-         <string>USERNAME</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="lineEdit_si_username">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_2">
-      <item>
-       <widget class="QLabel" name="label_password">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="text">
-         <string>PASSWORD</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="lineEdit_2">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="echoMode">
-         <enum>QLineEdit::Password</enum>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_3">
-      <item>
-       <widget class="QLabel" name="label_password_2">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="text">
-         <string>CONFIRM PASSWORD</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="lineEdit_CONFIRM">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="echoMode">
-         <enum>QLineEdit::Password</enum>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QLabel" name="label_caps_lock">
-   <property name="geometry">
-    <rect>
-     <x>450</x>
-     <y>147</y>
-     <width>181</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_info">
-   <property name="geometry">
-    <rect>
-     <x>460</x>
-     <y>110</y>
-     <width>21</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">image: url(:/resources/resources/informaionicon.png);
+   <widget class="QFrame" name="frame_INSIDE">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>80</y>
+      <width>421</width>
+      <height>151</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+#frame_INSIDE
+{
+	border:none;
+	background:#E5CB94;
+	color:#0F1628;
+	border-radius:16 px;
+	border: 2px solid blue ;
+border-color: #0F1628;
+  border-radius: 6px;
+  padding: 3 px;
+}</string>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <item>
+        <widget class="QLabel" name="label_password_3">
+         <property name="font">
+          <font>
+           <family>Segoe UI Black</family>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">
+#label_password_3
+{
 
-border: 1px solid gray;
-border-radius: 8px;
-padding: 0 2px;
-background: transparent;</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
+border:none;
+	background:#E5CB94;
+	color:#0F1628;
+	border-radius:16 px;
+	border: 2px solid blue ;
+border-color: #0F1628;
+  border-radius: 6px;
+  padding: 3 px;
+
+}
+
+
+</string>
+         </property>
+         <property name="text">
+          <string>USERNAME</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="lineEdit_si_username">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">#lineEdit_si_username
+{
+	border:none;
+	background:#0F1628;
+	color:#E5CB94;
+	border-radius:16px;
+	border: 1px solid yellow ;
+border-color: #E5CB94;
+  border-radius: 12px;
+  padding: 3px;
+}
+
+#lineEdit_si_username:hover
+{
+	border:none;
+	background:#E5CB94;
+	color:#0F1628;
+	border-radius:16px;
+	border: 2px solid blue ;
+border-color: #0F1628;
+  border-radius: 12px;
+  padding: 1px;
+}</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QLabel" name="label_password">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="font">
+          <font>
+           <family>Segoe UI Black</family>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">
+#label_password
+{
+
+border:none;
+	background:#E5CB94;
+	color:#0F1628;
+	border-radius:16 px;
+	border: 2px solid blue ;
+border-color: #0F1628;
+  border-radius: 6px;
+  padding: 3 px;
+
+}
+
+
+</string>
+         </property>
+         <property name="text">
+          <string>PASSWORD</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="lineEdit_2">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">#lineEdit_2
+{
+	border:none;
+	background:#0F1628;
+	color:#E5CB94;
+	border-radius:16px;
+	border: 1px solid yellow ;
+border-color: #E5CB94;
+  border-radius: 12px;
+  padding: 3px;
+}
+
+#lineEdit_2:hover
+{
+	border:none;
+	background:#E5CB94;
+	color:#0F1628;
+	border-radius:16px;
+	border: 2px solid blue ;
+border-color: #0F1628;
+  border-radius: 12px;
+  padding: 1px;
+}</string>
+         </property>
+         <property name="echoMode">
+          <enum>QLineEdit::Password</enum>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <widget class="QLabel" name="label_password_2">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="font">
+          <font>
+           <family>Segoe UI Black</family>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">
+#label_password_2
+{
+
+border:none;
+	background:#E5CB94;
+	color:#0F1628;
+	border-radius:16 px;
+	border: 2px solid blue ;
+border-color: #0F1628;
+  border-radius: 6px;
+  padding: 3 px;
+
+}
+
+
+</string>
+         </property>
+         <property name="text">
+          <string>CONFIRM PASSWORD</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="lineEdit_CONFIRM">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">#lineEdit_CONFIRM
+{
+	border:none;
+	background:#0F1628;
+	color:#E5CB94;
+	border-radius:16px;
+	border: 1px solid yellow ;
+border-color: #E5CB94;
+  border-radius: 12px;
+  padding: 3px;
+}
+
+#lineEdit_CONFIRM:hover
+{
+	border:none;
+	background:#E5CB94;
+	color:#0F1628;
+	border-radius:16px;
+	border: 2px solid blue ;
+border-color: #0F1628;
+  border-radius: 12px;
+  padding: 1px;
+}</string>
+         </property>
+         <property name="echoMode">
+          <enum>QLineEdit::Password</enum>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QPushButton" name="pushButton_eye">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>183</y>
+      <width>21</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#pushButton_eye {image: url(:/resources/resources/8666649_eye_off_icon.png);border:none; background:#E5CB94;  color:#0F1628;border-radius:16px; border: 2px solid blue ; border-color: #0F1628; border-radius: 8px;   padding: 2px;  } #pushButton_eye:hover  {border:none;background:floral white;color:#0F1628;border-radius:16px;border: 2px solid blue ;border-color: #0F1628;border-radius: 8px;padding: 2px;     }</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_strength">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>143</y>
+      <width>201</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:none;
+	background:#E5CB94;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_caps_lock">
+    <property name="geometry">
+     <rect>
+      <x>525</x>
+      <y>103</y>
+      <width>211</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+
+border:none;
+	background:#E5CB94;
+	
+
+
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_SIGNUP">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>290</y>
+      <width>80</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#pushButton_SIGNUP
+{
+	border:none;
+	background:#0F1628;
+	color:#E5CB94;
+	border-radius:16px;
+	border: 1px solid yellow ;
+border-color: #E5CB94;
+  border-radius: 12px;
+  padding: 3px;
+}
+
+#pushButton_SIGNUP:hover
+{
+	border:none;
+	background:floral white;
+	color:#0F1628;
+	border-radius:16px;
+	border: 2px solid blue ;
+border-color: #0F1628;
+  border-radius: 12px;
+  padding: 1px;
+}</string>
+    </property>
+    <property name="text">
+     <string>SIGNUP</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>-10</y>
+      <width>161</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>13</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#label_3
+{
+	border:none;
+	background:#0F1628;
+	color:#E5CB94;;
+	border-radius:16px;
+	border: 2px solid blue ;
+border-color: #0F1628;
+  border-radius: 12px;
+  padding: 3px;
+}
+
+
+
+
+</string>
+    </property>
+    <property name="text">
+     <string>SIGNUP FORM</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_info">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>4</y>
+      <width>21</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+#pushButton_info
+{
+	image: url(:/resources/resources/informaionicon.png);
+
+border:none;
+	background:#E5CB94;
+	color:#0F1628;
+	border-radius:16 px;
+	border: 2px solid blue ;
+border-color: #0F1628;
+  border-radius: 6px;
+  padding: 3 px;
+}
+#pushButton_info:hover
+{
+	border:none;
+	background:floralwhite;
+	color:#0F1628;
+	border-radius:16 px;
+	border: 2px solid blue ;
+border-color: #0F1628;
+  border-radius: 6px;
+  padding: 3 px;
+}
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>

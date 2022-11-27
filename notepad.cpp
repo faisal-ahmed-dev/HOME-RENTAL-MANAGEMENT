@@ -16,7 +16,7 @@ notepad::notepad(QWidget *parent) :
 
     QTimer *timer=new QTimer(this);
     connect(timer,SIGNAL(timeout()),this,SLOT(show()));
-    timer->start(400);
+    timer->start(500);
 
 
    ui->label->setEnabled(false);
@@ -35,7 +35,7 @@ void notepad::show()
     query.prepare("select * from NOTEPAD order by SERIAL DESC");
    if(!query.exec())
    {
-       QMessageBox::warning(this,"NOTEPAD","UNSUCCESSFULL IN QUERY");
+       QMessageBox::warning(0,"NOTEPAD","UNSUCCESSFULL IN QUERY");
        return;
    }
    else
@@ -50,7 +50,7 @@ void notepad::show()
    ui->tableWidget_list->setHorizontalHeaderLabels(labels);
    ui->tableWidget_list->setColumnWidth(0,560);
    ui->tableWidget_list->setRowHeight(0,50);
-   ui->tableWidget_list->setColumnWidth(1,130);
+   ui->tableWidget_list->setColumnWidth(1,160);
 
 
    int rowcount=0;
@@ -101,7 +101,7 @@ void notepad::on_pushButton_ADD_clicked()
     QString text=ui->textEdit->toPlainText();
     if(text=="")
     {
-        QMessageBox::warning(this,"NOTEPAD","PLEASE ENTER TEXT");
+        QMessageBox::warning(0,"NOTEPAD","PLEASE ENTER TEXT");
     }
     else
     {
@@ -134,7 +134,7 @@ void notepad::on_tableWidget_list_activated(const QModelIndex &index)
     }
     else
     {
-        QMessageBox::warning(this,"Login Form","UNSUCCESSFULL IN QUERY");
+        QMessageBox::warning(0,"Login Form","UNSUCCESSFULL IN QUERY");
     }
 }
 
@@ -146,11 +146,11 @@ void notepad::on_pushButton_UPDATE_clicked()
     QString text=ui->textEdit->toPlainText();
     if(text=="")
     {
-        QMessageBox::warning(this,"NOTEPAD","PLEASE ENTER TEXT");
+        QMessageBox::warning(0,"NOTEPAD","PLEASE ENTER TEXT");
     }
     else if(ui->label_TIME->text()=="")
     {
-        QMessageBox::warning(this,"NOTEPAD","PLEASE SELECT ITEM FROM TABLE");
+        QMessageBox::warning(0,"NOTEPAD","PLEASE SELECT ITEM FROM TABLE");
     }
     else
     {
@@ -172,11 +172,11 @@ void notepad::on_pushButton_DELETE_clicked()
     QString text=ui->textEdit->toPlainText();
     if(text=="")
     {
-        QMessageBox::warning(this,"NOTEPAD","PLEASE ENTER TEXT");
+        QMessageBox::warning(0,"NOTEPAD","PLEASE ENTER TEXT");
     }
     else if(ui->label_TIME->text()=="")
     {
-        QMessageBox::warning(this,"NOTEPAD","PLEASE SELECT ITEM FROM TABLE");
+        QMessageBox::warning(0,"NOTEPAD","PLEASE SELECT ITEM FROM TABLE");
     }
     else
     {

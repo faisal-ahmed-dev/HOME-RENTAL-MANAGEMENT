@@ -7,12 +7,14 @@
 #include<admin_after_login.h>
 #include<signup_form.h>
 #include<QDateTime>
+#include<QPalette>
 admin_login::admin_login(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::admin_login)
 {
     hide();
     ui->setupUi(this);
+
 
 }
 admin_login::~admin_login()
@@ -23,7 +25,7 @@ admin_login::~admin_login()
 void admin_login::on_pushButton_LOGIN_clicked()
 {
     QSqlDatabase db= QSqlDatabase::addDatabase("QSQLITE","myconnect");
-    db.setDatabaseName("HOME.sqlite");
+   db.setDatabaseName("HOME.sqlite");
     QString username= ui->lineEdit_username->text();
     QString password= ui->lineEdit_2->text();
 
@@ -34,7 +36,7 @@ void admin_login::on_pushButton_LOGIN_clicked()
     query.bindValue(":password",password);
     if(!query.exec())
     {
-         QMessageBox::warning(this,"Login Form","UNSUCCESSFULL IN QUERY");
+         QMessageBox::warning(0,"Login Form","UNSUCCESSFULL IN QUERY");
     }
     else
     {
@@ -54,9 +56,9 @@ void admin_login::on_pushButton_LOGIN_clicked()
                 af.exec();
         }
        else{
+            QMessageBox msg;
 
-            QMessageBox::warning(this,"Login Form","USERNAME OR PASSWORD DOESN'T MATCHED");
-
+         msg.warning(0,"Login Form","USERNAME OR PASSWORD DOESN'T MATCHED");
        }
     }
 
@@ -74,7 +76,7 @@ void admin_login::on_pushButton_SIGNUP_clicked()
 
 void admin_login::on_pushButton_eye_pressed()
 {
-    ui->pushButton_eye->setStyleSheet("image: url(:/resources/resources/vecteezy_preview-show-interface-icon_6086018.jpg);");
+    ui->pushButton_eye->setStyleSheet("#pushButton_eye {image: url(:/resources/resources/8666618_eye_icon.png);border:none; background:#E5CB94;  color:#0F1628;border-radius:16px; border: 2px solid blue ; border-color: #0F1628; border-radius: 8px;   padding: 2px;  } #pushButton_eye:hover  {border:none;background:floral white;color:#0F1628;border-radius:16px;border: 2px solid blue ;border-color: #0F1628;border-radius: 8px;padding: 2px;     }");
    ui->lineEdit_2->setEchoMode(QLineEdit::Normal);
 
 }
@@ -82,7 +84,7 @@ void admin_login::on_pushButton_eye_pressed()
 
 void admin_login::on_pushButton_eye_released()
 {
-    ui->pushButton_eye->setStyleSheet("image: url(:/resources/resources/eye_off.jpg);");
+    ui->pushButton_eye->setStyleSheet("#pushButton_eye {image: url(:/resources/resources/8666649_eye_off_icon.png);border:none; background:#E5CB94;  color:#0F1628;border-radius:16px; border: 2px solid blue ; border-color: #0F1628; border-radius: 8px;   padding: 2px;  } #pushButton_eye:hover  {border:none;background:floral white;color:#0F1628;border-radius:16px;border: 2px solid blue ;border-color: #0F1628;border-radius: 8px;padding: 2px;     }");
     ui->lineEdit_2->setEchoMode(QLineEdit::Password);
 }
 

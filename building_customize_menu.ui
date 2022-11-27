@@ -6,21 +6,51 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>909</width>
-    <height>601</height>
+    <width>873</width>
+    <height>565</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>BUILDING INFORMATION</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(15, 22, 40);
+</string>
+  </property>
   <widget class="QPushButton" name="pushButton_back">
    <property name="geometry">
     <rect>
-     <x>770</x>
-     <y>540</y>
-     <width>91</width>
+     <x>760</x>
+     <y>510</y>
+     <width>81</width>
      <height>31</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#pushButton_back
+{
+	border:none;
+	background:#0F1628;
+	color:#E5CB94;
+	border-radius:16px;
+	border: 1px solid yellow ;
+border-color: #E5CB94;
+  border-radius: 12px;
+  padding: 3px;
+}
+
+#pushButton_back:hover
+{
+	border:none;
+	background:floral white;
+	color:#0F1628;
+	border-radius:16px;
+	border: 2px solid blue ;
+border-color: #0F1628;
+  border-radius: 12px;
+  padding: 1px;
+}
+</string>
    </property>
    <property name="text">
     <string>BACK</string>
@@ -35,6 +65,32 @@
      <height>24</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">#pushButton_ADMIT
+{
+	border:none;
+	background:#0F1628;
+	color:#E5CB94;
+	border-radius:16px;
+	border: 1px solid yellow ;
+border-color: #E5CB94;
+  border-radius: 12px;
+  padding: 3px;
+}
+
+#pushButton_ADMIT:hover
+{
+	border:none;
+	background:floral white;
+	color:#0F1628;
+	border-radius:16px;
+	border: 2px solid blue ;
+border-color: #0F1628;
+  border-radius: 12px;
+  padding: 1px;
+}
+</string>
+   </property>
    <property name="text">
     <string>ADMIT</string>
    </property>
@@ -44,14 +100,19 @@
     <rect>
      <x>330</x>
      <y>40</y>
-     <width>151</width>
+     <width>211</width>
      <height>21</height>
     </rect>
    </property>
    <property name="font">
     <font>
+     <pointsize>10</pointsize>
      <bold>true</bold>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(229, 203, 148);
+</string>
    </property>
    <property name="text">
     <string>BUILDING INFORMATION</string>
@@ -62,9 +123,35 @@
     <rect>
      <x>180</x>
      <y>460</y>
-     <width>91</width>
+     <width>81</width>
      <height>31</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#pushButton_EDIT
+{
+	border:none;
+	background:#0F1628;
+	color:#E5CB94;
+	border-radius:16px;
+	border: 1px solid yellow ;
+border-color: #E5CB94;
+  border-radius: 12px;
+  padding: 3px;
+}
+
+#pushButton_EDIT:hover
+{
+	border:none;
+	background:floral white;
+	color:#0F1628;
+	border-radius:16px;
+	border: 2px solid blue ;
+border-color: #0F1628;
+  border-radius: 12px;
+  padding: 1px;
+}
+</string>
    </property>
    <property name="text">
     <string>EDIT</string>
@@ -84,6 +171,10 @@
      <bold>true</bold>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(229, 203, 148);
+</string>
+   </property>
    <property name="text">
     <string>DETAILS</string>
    </property>
@@ -91,7 +182,7 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>690</x>
+     <x>660</x>
      <y>200</y>
      <width>121</width>
      <height>16</height>
@@ -102,6 +193,10 @@
      <pointsize>10</pointsize>
      <bold>true</bold>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(229, 203, 148);
+</string>
    </property>
    <property name="text">
     <string> FLAT MENU</string>
@@ -127,6 +222,10 @@
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(229, 203, 148);
+</string>
+        </property>
         <property name="text">
          <string>FLOOR</string>
         </property>
@@ -140,8 +239,36 @@
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
+        <property name="styleSheet">
+         <string notr="true">#lineEdit_FLOOR
+{
+	border:none;
+	background:#0F1628;
+	color:#E5CB94;
+	border-radius:16px;
+	border: 1px solid yellow ;
+border-color: #E5CB94;
+  border-radius: 12px;
+  padding: 3px;
+}
+
+#lineEdit_FLOOR:hover
+{
+	border:none;
+	background:#E5CB94;
+	color:#0F1628;
+	border-radius:16px;
+	border: 2px solid blue ;
+border-color: #0F1628;
+  border-radius: 12px;
+  padding: 1px;
+}</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
         <property name="placeholderText">
-         <string>1,2,3,4</string>
+         <string/>
         </property>
        </widget>
       </item>
@@ -157,6 +284,10 @@
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(229, 203, 148);
+</string>
+        </property>
         <property name="text">
          <string>FLAT</string>
         </property>
@@ -170,8 +301,36 @@
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
+        <property name="styleSheet">
+         <string notr="true">#lineEdit_FLAT
+{
+	border:none;
+	background:#0F1628;
+	color:#E5CB94;
+	border-radius:16px;
+	border: 1px solid yellow ;
+border-color: #E5CB94;
+  border-radius: 12px;
+  padding: 3px;
+}
+
+#lineEdit_FLAT:hover
+{
+	border:none;
+	background:#E5CB94;
+	color:#0F1628;
+	border-radius:16px;
+	border: 2px solid blue ;
+border-color: #0F1628;
+  border-radius: 12px;
+  padding: 1px;
+}</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
         <property name="placeholderText">
-         <string> A,B,C,D</string>
+         <string/>
         </property>
        </widget>
       </item>
@@ -201,6 +360,10 @@
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(229, 203, 148);
+</string>
+          </property>
           <property name="text">
            <string>BUILDING NAME</string>
           </property>
@@ -220,6 +383,34 @@
             <height>0</height>
            </size>
           </property>
+          <property name="styleSheet">
+           <string notr="true">#lineEdit_BUILD_NAME
+{
+	border:none;
+	background:#0F1628;
+	color:#E5CB94;
+	border-radius:16px;
+	border: 1px solid yellow ;
+border-color: #E5CB94;
+  border-radius: 12px;
+  padding: 3px;
+}
+
+#lineEdit_BUILD_NAME:hover
+{
+	border:none;
+	background:#E5CB94;
+	color:#0F1628;
+	border-radius:16px;
+	border: 2px solid blue ;
+border-color: #0F1628;
+  border-radius: 12px;
+  padding: 1px;
+}</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
          </widget>
         </item>
        </layout>
@@ -233,6 +424,10 @@
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(229, 203, 148);
+</string>
           </property>
           <property name="text">
            <string>BUILDING ADDRESS</string>
@@ -252,6 +447,34 @@
             <width>180</width>
             <height>0</height>
            </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">#lineEdit_ADDRESS
+{
+	border:none;
+	background:#0F1628;
+	color:#E5CB94;
+	border-radius:16px;
+	border: 1px solid yellow ;
+border-color: #E5CB94;
+  border-radius: 12px;
+  padding: 3px;
+}
+
+#lineEdit_ADDRESS:hover
+{
+	border:none;
+	background:#E5CB94;
+	color:#0F1628;
+	border-radius:16px;
+	border: 2px solid blue ;
+border-color: #0F1628;
+  border-radius: 12px;
+  padding: 1px;
+}</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -274,6 +497,10 @@
     </item>
     <item>
      <widget class="QTextEdit" name="textEdit">
+      <property name="styleSheet">
+       <string notr="true">background:#E5CB94;
+</string>
+      </property>
       <property name="placeholderText">
        <string>TYPES OF FLAT DETAILS</string>
       </property>
@@ -284,22 +511,58 @@
   <widget class="QPushButton" name="pushButton_info">
    <property name="geometry">
     <rect>
-     <x>770</x>
-     <y>197</y>
+     <x>780</x>
+     <y>200</y>
      <width>21</width>
      <height>21</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">image: url(:/resources/resources/informaionicon.png);
+    <string notr="true">
+#pushButton_info
+{
+	image: url(:/resources/resources/informaionicon.png);
 
-border: 1px solid gray;
-border-radius: 8px;
-padding: 0 2px;
-background: transparent;</string>
+border:none;
+	background:#E5CB94;
+	color:#0F1628;
+	border-radius:16 px;
+	border: 2px solid blue ;
+border-color: #0F1628;
+  border-radius: 6px;
+  padding: 3 px;
+}
+#pushButton_info:hover
+{
+	border:none;
+	background:floralwhite;
+	color:#0F1628;
+	border-radius:16 px;
+	border: 2px solid blue ;
+border-color: #0F1628;
+  border-radius: 6px;
+  padding: 3 px;
+}
+</string>
    </property>
    <property name="text">
     <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>600</x>
+     <y>340</y>
+     <width>261</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 0, 0);</string>
+   </property>
+   <property name="text">
+    <string>Note: This feature is used to create flat and floor</string>
    </property>
   </widget>
  </widget>

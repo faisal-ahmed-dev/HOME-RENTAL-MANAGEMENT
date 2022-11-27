@@ -17,8 +17,7 @@ TOLET::TOLET(QWidget *parent) :
 {
     ui->setupUi(this);
     QSqlDatabase db= QSqlDatabase::addDatabase("QSQLITE","myconnect");
-db.setDatabaseName("HOME.sqlite");
-   if(db.open())
+ db.setDatabaseName("HOME.sqlite");  if(db.open())
    {
 
        QSqlQuery query(db);
@@ -29,7 +28,7 @@ db.setDatabaseName("HOME.sqlite");
        qy.prepare("select * from building");
        if(!query.exec())
        {
-            QMessageBox::warning(this,"building","DATABASE QUERY NOT OPENED");
+            QMessageBox::warning(0,"building","DATABASE QUERY NOT OPENED");
        }
        else {
 
@@ -61,7 +60,7 @@ db.setDatabaseName("HOME.sqlite");
    }
    else
    {
-       QMessageBox::warning(this,"building","DATABASE NOT OPENED");
+       QMessageBox::warning(0,"building","DATABASE NOT OPENED");
    }
 }
 

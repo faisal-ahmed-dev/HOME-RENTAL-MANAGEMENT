@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>PROFILE</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(15, 22, 40);
+</string>
+  </property>
   <widget class="QTableWidget" name="tableWidget">
    <property name="geometry">
     <rect>
@@ -21,6 +25,10 @@
      <width>231</width>
      <height>192</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background:#E5CB94;
+</string>
    </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>
@@ -67,6 +75,10 @@
      <bold>true</bold>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(229, 203, 148);
+</string>
+   </property>
    <property name="text">
     <string>RECENT LOGINS</string>
    </property>
@@ -100,6 +112,17 @@
    </property>
    <property name="autoFillBackground">
     <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#groupBox_2
+{
+	border:none;
+	border-radius:16 px;
+	border: 1px solid yellow ;
+border-color: #E5CB94;
+  border-radius: 12px;
+  padding: 3 px;
+}</string>
    </property>
    <property name="title">
     <string/>
@@ -145,6 +168,10 @@
         <property name="autoFillBackground">
          <bool>false</bool>
         </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(229, 203, 148);
+</string>
+        </property>
         <property name="text">
          <string>CHANGE USERNAME</string>
         </property>
@@ -163,6 +190,34 @@
           <width>121</width>
           <height>26</height>
          </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">#lineEdit_username
+{
+	border:none;
+	background:#0F1628;
+	color:#E5CB94;
+	border-radius:16px;
+	border: 1px solid yellow ;
+border-color: #E5CB94;
+  border-radius: 12px;
+  padding: 3px;
+}
+
+#lineEdit_username:hover
+{
+	border:none;
+	background:#E5CB94;
+	color:#0F1628;
+	border-radius:16px;
+	border: 2px solid blue ;
+border-color: #0F1628;
+  border-radius: 12px;
+  padding: 1px;
+}</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
         <property name="readOnly">
          <bool>false</bool>
@@ -190,6 +245,10 @@
           <height>20</height>
          </size>
         </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(229, 203, 148);
+</string>
+        </property>
         <property name="text">
          <string>CHANGE PASSWORD</string>
         </property>
@@ -214,6 +273,34 @@
           <width>16777215</width>
           <height>16777215</height>
          </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">#lineEdit_password
+{
+	border:none;
+	background:#0F1628;
+	color:#E5CB94;
+	border-radius:16px;
+	border: 1px solid yellow ;
+border-color: #E5CB94;
+  border-radius: 12px;
+  padding: 3px;
+}
+
+#lineEdit_password:hover
+{
+	border:none;
+	background:#E5CB94;
+	color:#0F1628;
+	border-radius:16px;
+	border: 2px solid blue ;
+border-color: #0F1628;
+  border-radius: 12px;
+  padding: 1px;
+}</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
         <property name="readOnly">
          <bool>false</bool>
@@ -241,6 +328,10 @@
           <height>26</height>
          </size>
         </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(229, 203, 148);
+</string>
+        </property>
         <property name="text">
          <string>CURRENT PASSWORD</string>
         </property>
@@ -260,6 +351,34 @@
           <height>26</height>
          </size>
         </property>
+        <property name="styleSheet">
+         <string notr="true">#lineEdit_current_pass
+{
+	border:none;
+	background:#0F1628;
+	color:#E5CB94;
+	border-radius:16px;
+	border: 1px solid yellow ;
+border-color: #E5CB94;
+  border-radius: 12px;
+  padding: 3px;
+}
+
+#lineEdit_current_pass:hover
+{
+	border:none;
+	background:#E5CB94;
+	color:#0F1628;
+	border-radius:16px;
+	border: 2px solid blue ;
+border-color: #0F1628;
+  border-radius: 12px;
+  padding: 1px;
+}</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
         <property name="readOnly">
          <bool>false</bool>
         </property>
@@ -278,11 +397,11 @@
          <enum>Qt::Horizontal</enum>
         </property>
         <property name="sizeType">
-         <enum>QSizePolicy::MinimumExpanding</enum>
+         <enum>QSizePolicy::Fixed</enum>
         </property>
         <property name="sizeHint" stdset="0">
          <size>
-          <width>40</width>
+          <width>221</width>
           <height>20</height>
          </size>
         </property>
@@ -290,6 +409,32 @@
       </item>
       <item>
        <widget class="QPushButton" name="pushButton_EDIT">
+        <property name="styleSheet">
+         <string notr="true">#pushButton_EDIT
+{
+	border:none;
+	background:#0F1628;
+	color:#E5CB94;
+	border-radius:16px;
+	border: 1px solid yellow ;
+border-color: #E5CB94;
+  border-radius: 12px;
+  padding: 5px;
+}
+
+#pushButton_EDIT:hover
+{
+	border:none;
+	background:floral white;
+	color:#0F1628;
+	border-radius:16px;
+	border: 2px solid blue ;
+border-color: #0F1628;
+  border-radius: 12px;
+  padding: 1px;
+}
+</string>
+        </property>
         <property name="text">
          <string>EDIT</string>
         </property>
@@ -308,59 +453,93 @@
       <property name="sizeHint" stdset="0">
        <size>
         <width>20</width>
-        <height>37</height>
+        <height>40</height>
        </size>
       </property>
      </spacer>
     </item>
     <item>
-     <layout class="QHBoxLayout" name="horizontalLayout">
-      <item>
-       <widget class="QLabel" name="label_2">
-        <property name="font">
-         <font>
-          <bold>true</bold>
-          <strikeout>false</strikeout>
-          <kerning>true</kerning>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: rgb(170, 0, 0);</string>
-        </property>
-        <property name="text">
-         <string>DELETE ACCOUNT</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <spacer name="horizontalSpacer_2">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeType">
-         <enum>QSizePolicy::Fixed</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>97</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushButton_DELETE">
-        <property name="styleSheet">
-         <string notr="true">image: url(:/resources/resources/delete-icon-980x980.png);
+     <widget class="QFrame" name="FRAME_DELETE">
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QLabel" name="label_2">
+         <property name="font">
+          <font>
+           <bold>true</bold>
+           <strikeout>false</strikeout>
+           <kerning>true</kerning>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">
+
+	border:none;
+	color:#E5CB94;
+	
+
 
 </string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-     </layout>
+         </property>
+         <property name="text">
+          <string>DELETE ACCOUNT</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>97</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_DELETE">
+         <property name="styleSheet">
+          <string notr="true">#pushButton_DELETE{
+	image: url(:/resources/resources/delete-icon-980x980.png);
+border:none;
+	background: rgb(170, 0, 0);;
+	color:#E5CB94;
+	border-radius:16px;
+	border: 2px solid red ;
+border-color: #E5CB94;
+  border-radius: 6px;
+  padding: 3 px;
+}
+#pushButton_DELETE:hover
+{
+	border:none;
+	background:#E5CB94;
+	color:#0F1628;
+	border-radius:16 px;
+	border: 2px solid blue ;
+border-color: #0F1628;
+  border-radius: 6px;
+  padding: 3 px;
+}
+
+
+</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
     </item>
    </layout>
   </widget>
@@ -379,6 +558,10 @@
      <bold>true</bold>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(229, 203, 148);
+</string>
+   </property>
    <property name="text">
     <string>PROFILE INFORMATION</string>
    </property>
@@ -389,8 +572,35 @@
      <x>740</x>
      <y>460</y>
      <width>80</width>
-     <height>24</height>
+     <height>31</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#pushButton_BACK
+{
+	border:none;
+	background:#0F1628;
+	color:#E5CB94;
+	border-radius:16px;
+	border: 1px solid yellow ;
+border-color: #E5CB94;
+  border-radius: 12px;
+  padding: 3px;
+}
+
+#pushButton_BACK:hover
+{
+	border:none;
+background:floral white;
+	color:#0F1628;
+	border-radius:16px;
+	border: 2px solid blue ;
+border-color: #0F1628;
+  border-radius: 12px;
+  padding: 1px;
+}
+
+</string>
    </property>
    <property name="text">
     <string>BACK</string>
@@ -399,8 +609,8 @@
   <widget class="QLabel" name="label_strength">
    <property name="geometry">
     <rect>
-     <x>410</x>
-     <y>205</y>
+     <x>390</x>
+     <y>202</y>
      <width>91</width>
      <height>21</height>
     </rect>
@@ -419,13 +629,27 @@
    <property name="geometry">
     <rect>
      <x>270</x>
-     <y>60</y>
-     <width>51</width>
-     <height>33</height>
+     <y>54</y>
+     <width>41</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">image: url(:/resources/resources/kindpng_1712282.png);</string>
+    <string notr="true">#label_picture
+{
+	image: url(:/resources/resources/kindpng_1712282.png);
+	border:none;
+	background:#E5CB94;
+	color:#0F1628;;
+	border-radius:16px;
+	border: 1px solid blue ;
+border-color: #0F1628;
+  border-radius: 20px;
+  padding: 3px;
+}
+
+
+</string>
    </property>
    <property name="text">
     <string/>

@@ -12,6 +12,7 @@ class signup_form : public QDialog
     Q_OBJECT
 public:
      bool accept= false;
+     bool user_acc=false;
 public:
     explicit signup_form(QWidget *parent = nullptr);
     ~signup_form();

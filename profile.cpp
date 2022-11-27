@@ -149,16 +149,16 @@ void profile::on_pushButton_EDIT_clicked()
     qy.bindValue(":password",old_pass);
     if(new_username=="")
     {
-         QMessageBox::warning(this,"database","PLEASE INSERT USERNAME");
+         QMessageBox::warning(0,"database","PLEASE INSERT USERNAME");
     }
     else if(old_pass=="")
     {
-        QMessageBox::warning(this,"database","PLEASE INSERT PASSWORD");
+        QMessageBox::warning(0,"database","PLEASE INSERT PASSWORD");
         return;
     }
     else if(!qy.exec())
     {
-         QMessageBox::warning(this,"Login Form","UNSUCCESSFULL IN QUERY");
+         QMessageBox::warning(0,"Login Form","UNSUCCESSFULL IN QUERY");
     }
 
     else
@@ -169,7 +169,7 @@ void profile::on_pushButton_EDIT_clicked()
         }
        else{
         found=false;
-            QMessageBox::warning(this,"Login Form","PASSWORD DOESN'T MATCHED");
+            QMessageBox::warning(0,"Login Form","PASSWORD DOESN'T MATCHED");
 
        }
     }
@@ -198,13 +198,13 @@ if(new_pass!="")
       if(qy1.exec()&& qy2.exec())
      {
 
-         QMessageBox::information(this,"building","UPDATED");
+         QMessageBox::information(0,"building","UPDATED");
 
 
      }
      else
      {
-         QMessageBox::warning(this,"building","DATABASE QUERY  NOT HAPPENED");
+         QMessageBox::warning(0,"building","DATABASE QUERY  NOT HAPPENED");
      }
 }
 else if(new_pass=="" && old_pass!="" && new_username !="")
@@ -218,19 +218,19 @@ else if(new_pass=="" && old_pass!="" && new_username !="")
   if(qy1.exec()&& qy2.exec())
  {
 
-     QMessageBox::information(this,"building","USERNAME UPDATED");
+     QMessageBox::information(0,"building","USERNAME UPDATED");
 
 
  }
  else
  {
-     QMessageBox::warning(this,"building","DATABASE QUERY  NOT HAPPENED");
+     QMessageBox::warning(0,"building","DATABASE QUERY  NOT HAPPENED");
  }
 }
 }
 else
 {
-  QMessageBox::warning(this,"database","PLEASE INSERT PASSWORD CORRECTLY");
+  QMessageBox::warning(0,"database","PLEASE INSERT PASSWORD CORRECTLY");
 }
 
 
@@ -240,7 +240,7 @@ else
 void profile::on_pushButton_DELETE_clicked()
 {
     QMessageBox::StandardButton reply;
-    reply=QMessageBox::question(this,"PROFILE","ARE YOU WANT TO DELETE THIS ACCOUNT?",QMessageBox::Yes | QMessageBox::No );
+    reply=QMessageBox::question(0,"PROFILE","ARE YOU WANT TO DELETE THIS ACCOUNT?",QMessageBox::Yes | QMessageBox::No );
 
     if(reply==QMessageBox::Yes)
     {
@@ -256,7 +256,7 @@ void profile::on_pushButton_DELETE_clicked()
      if(qy.exec()&&qy1.exec())
     {
 
-        QMessageBox::information(this,"PROFILE","ACCOUNT DELETED");
+        QMessageBox::information(0,"PROFILE","ACCOUNT DELETED");
         hide();
         admin_login a;
         a.setModal(true);
@@ -265,7 +265,7 @@ void profile::on_pushButton_DELETE_clicked()
     }
     else
     {
-        QMessageBox::warning(this,"PROFILE","DATABASE QUERY  NOT HAPPENED");
+        QMessageBox::warning(0,"PROFILE","DATABASE QUERY  NOT HAPPENED");
     }
     }
 

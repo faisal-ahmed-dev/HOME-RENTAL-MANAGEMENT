@@ -6,12 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1020</width>
-    <height>617</height>
+    <width>873</width>
+    <height>565</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MAINTENANCE</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(15, 22, 40);</string>
   </property>
   <widget class="QGroupBox" name="groupBox_2">
    <property name="geometry">
@@ -75,6 +78,9 @@
           <height>26</height>
          </size>
         </property>
+        <property name="styleSheet">
+         <string notr="true">color:#E5CB94;</string>
+        </property>
         <property name="text">
          <string>FLAT</string>
         </property>
@@ -93,6 +99,35 @@
           <width>121</width>
           <height>26</height>
          </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">
+#lineEdit_FLAT
+{
+	border:none;
+	background:#0F1628;
+	color:#E5CB94;
+	border-radius:16px;
+	border: 1px solid yellow ;
+border-color: #E5CB94;
+  border-radius: 6px;
+  padding: 3 px;
+}
+#lineEdit_FLAT:hover
+{
+	border:none;
+	background:#E5CB94;
+	color:#0F1628;
+	border-radius:16 px;
+	border: 2px solid blue ;
+border-color: #0F1628;
+  border-radius: 6px;
+  padding: 3 px;
+}
+</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
         <property name="clearButtonEnabled">
          <bool>false</bool>
@@ -120,6 +155,9 @@
           <height>26</height>
          </size>
         </property>
+        <property name="styleSheet">
+         <string notr="true">color:#E5CB94;</string>
+        </property>
         <property name="text">
          <string>ISSUE</string>
         </property>
@@ -138,6 +176,35 @@
           <width>121</width>
           <height>26</height>
          </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">
+#lineEdit_ISSUE
+{
+	border:none;
+	background:#0F1628;
+	color:#E5CB94;
+	border-radius:16px;
+	border: 1px solid yellow ;
+border-color: #E5CB94;
+  border-radius: 6px;
+  padding: 3 px;
+}
+#lineEdit_ISSUE:hover
+{
+	border:none;
+	background:#E5CB94;
+	color:#0F1628;
+	border-radius:16 px;
+	border: 2px solid blue ;
+border-color: #0F1628;
+  border-radius: 6px;
+  padding: 3 px;
+}
+</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
         <property name="clearButtonEnabled">
          <bool>false</bool>
@@ -165,6 +232,9 @@
           <height>26</height>
          </size>
         </property>
+        <property name="styleSheet">
+         <string notr="true">color:#E5CB94;</string>
+        </property>
         <property name="text">
          <string>BILL</string>
         </property>
@@ -184,8 +254,37 @@
           <height>26</height>
          </size>
         </property>
+        <property name="styleSheet">
+         <string notr="true">
+#lineEdit_BILL
+{
+	border:none;
+	background:#0F1628;
+	color:#E5CB94;
+	border-radius:16px;
+	border: 1px solid yellow ;
+border-color: #E5CB94;
+  border-radius: 6px;
+  padding: 3 px;
+}
+#lineEdit_BILL:hover
+{
+	border:none;
+	background:#E5CB94;
+	color:#0F1628;
+	border-radius:16 px;
+	border: 2px solid blue ;
+border-color: #0F1628;
+  border-radius: 6px;
+  padding: 3 px;
+}
+</string>
+        </property>
         <property name="text">
          <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
@@ -210,8 +309,11 @@
           <height>26</height>
          </size>
         </property>
+        <property name="styleSheet">
+         <string notr="true">color:#E5CB94;</string>
+        </property>
         <property name="text">
-         <string>PERCENTAGE(%)</string>
+         <string>RENTER PERCENTAGE(%)</string>
         </property>
        </widget>
       </item>
@@ -229,8 +331,37 @@
           <height>26</height>
          </size>
         </property>
+        <property name="styleSheet">
+         <string notr="true">
+#lineEdit_PERCENTAGE
+{
+	border:none;
+	background:#0F1628;
+	color:#E5CB94;
+	border-radius:16px;
+	border: 1px solid yellow ;
+border-color: #E5CB94;
+  border-radius: 6px;
+  padding: 3 px;
+}
+#lineEdit_PERCENTAGE:hover
+{
+	border:none;
+	background:#E5CB94;
+	color:#0F1628;
+	border-radius:16 px;
+	border: 2px solid blue ;
+border-color: #0F1628;
+  border-radius: 6px;
+  padding: 3 px;
+}
+</string>
+        </property>
         <property name="text">
          <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
@@ -240,6 +371,30 @@
      <layout class="QHBoxLayout" name="horizontalLayout_19">
       <item>
        <widget class="QPushButton" name="pushButton_clear_2">
+        <property name="styleSheet">
+         <string notr="true">#pushButton_clear_2
+{
+	border:none;
+	background:#0F1628;
+	color:#E5CB94;
+	border-radius:16px;
+	border: 1px solid yellow ;
+border-color: #E5CB94;
+  border-radius: 12px;
+  padding: 3 px;
+}
+#pushButton_clear_2:hover
+{
+	border:none;
+	background:floralwhite;
+	color:#0F1628;
+	border-radius:16 px;
+	border: 2px solid blue ;
+border-color: #0F1628;
+  border-radius: 6px;
+  padding: 3 px;
+}</string>
+        </property>
         <property name="text">
          <string>CLEAR</string>
         </property>
@@ -263,6 +418,30 @@
       </item>
       <item>
        <widget class="QPushButton" name="pushButton_ADD">
+        <property name="styleSheet">
+         <string notr="true">#pushButton_ADD
+{
+	border:none;
+	background:#0F1628;
+	color:#E5CB94;
+	border-radius:16px;
+	border: 1px solid yellow ;
+border-color: #E5CB94;
+  border-radius: 12px;
+  padding: 3 px;
+}
+#pushButton_ADD:hover
+{
+	border:none;
+	background:floralwhite;
+	color:#0F1628;
+	border-radius:16 px;
+	border: 2px solid blue ;
+border-color: #0F1628;
+  border-radius: 6px;
+  padding: 3 px;
+}</string>
+        </property>
         <property name="text">
          <string>ADD</string>
         </property>
@@ -289,6 +468,9 @@
           <height>26</height>
          </size>
         </property>
+        <property name="styleSheet">
+         <string notr="true">color:#E5CB94;</string>
+        </property>
         <property name="text">
          <string>TOTAL BILL</string>
         </property>
@@ -308,11 +490,40 @@
           <height>26</height>
          </size>
         </property>
+        <property name="styleSheet">
+         <string notr="true">
+#lineEdit_TOTAL
+{
+	border:none;
+	background:#0F1628;
+	color:#E5CB94;
+	border-radius:16px;
+	border: 1px solid yellow ;
+border-color: #E5CB94;
+  border-radius: 6px;
+  padding: 3 px;
+}
+#lineEdit_TOTAL:hover
+{
+	border:none;
+	background:#E5CB94;
+	color:#0F1628;
+	border-radius:16 px;
+	border: 2px solid blue ;
+border-color: #0F1628;
+  border-radius: 6px;
+  padding: 3 px;
+}
+</string>
+        </property>
         <property name="inputMethodHints">
          <set>Qt::ImhDigitsOnly</set>
         </property>
         <property name="text">
          <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
         <property name="readOnly">
          <bool>true</bool>
@@ -325,6 +536,30 @@
      <layout class="QHBoxLayout" name="horizontalLayout_18">
       <item>
        <widget class="QPushButton" name="pushButton_ADMIT">
+        <property name="styleSheet">
+         <string notr="true">#pushButton_ADMIT
+{
+	border:none;
+	background:#0F1628;
+	color:#E5CB94;
+	border-radius:16px;
+	border: 1px solid yellow ;
+border-color: #E5CB94;
+  border-radius: 12px;
+  padding: 3 px;
+}
+#pushButton_ADMIT:hover
+{
+	border:none;
+	background:floralwhite;
+	color:#0F1628;
+	border-radius:16 px;
+	border: 2px solid blue ;
+border-color: #0F1628;
+  border-radius: 6px;
+  padding: 3 px;
+}</string>
+        </property>
         <property name="text">
          <string>ADMIT</string>
         </property>
@@ -338,20 +573,47 @@
    <property name="geometry">
     <rect>
      <x>410</x>
-     <y>140</y>
-     <width>561</width>
+     <y>130</y>
+     <width>441</width>
      <height>281</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background:#E5CB94;</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_back">
    <property name="geometry">
     <rect>
-     <x>760</x>
-     <y>520</y>
+     <x>770</x>
+     <y>510</y>
      <width>71</width>
      <height>31</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#pushButton_back
+{
+	border:none;
+	background:#0F1628;
+	color:#E5CB94;
+	border-radius:16px;
+	border: 1px solid yellow ;
+border-color: #E5CB94;
+  border-radius: 12px;
+  padding: 3 px;
+}
+#pushButton_back:hover
+{
+	border:none;
+	background:floralwhite;
+	color:#0F1628;
+	border-radius:16 px;
+	border: 2px solid blue ;
+border-color: #0F1628;
+  border-radius: 6px;
+  padding: 3 px;
+}</string>
    </property>
    <property name="text">
     <string>BACK</string>
@@ -372,6 +634,9 @@
      <bold>true</bold>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">color:#E5CB94;</string>
+   </property>
    <property name="text">
     <string>MAINTENANCE</string>
    </property>
@@ -379,7 +644,7 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>640</x>
+     <x>620</x>
      <y>100</y>
      <width>49</width>
      <height>16</height>
@@ -390,6 +655,9 @@
      <pointsize>12</pointsize>
      <bold>true</bold>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color:#E5CB94;</string>
    </property>
    <property name="text">
     <string>LIST</string>
@@ -403,6 +671,30 @@
      <width>108</width>
      <height>24</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#pushButton_clear
+{
+	border:none;
+	background:#0F1628;
+	color:#E5CB94;
+	border-radius:16px;
+	border: 1px solid yellow ;
+border-color: #E5CB94;
+  border-radius: 12px;
+  padding: 3 px;
+}
+#pushButton_clear:hover
+{
+	border:none;
+	background:floralwhite;
+	color:#0F1628;
+	border-radius:16 px;
+	border: 2px solid blue ;
+border-color: #0F1628;
+  border-radius: 6px;
+  padding: 3 px;
+}</string>
    </property>
    <property name="text">
     <string>CLEAR ALL</string>

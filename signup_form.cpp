@@ -12,6 +12,9 @@ signup_form::signup_form(QWidget *parent) :
     ui(new Ui::signup_form)
 {
     ui->setupUi(this);
+    QSqlDatabase db= QSqlDatabase::addDatabase("QSQLITE");
+    db.setDatabaseName("HOME.sqlite");
+    db.open();
 
     QTimer *timer=new QTimer(this);
     connect(timer,SIGNAL(timeout()),this,SLOT(show()));
@@ -77,10 +80,9 @@ if(n!=0)
                      ui->label_strength->setPalette(palette);
 
            }
-
            else
        {
-
+             accept=false;
            ui->label_strength->setText("WEAK");
            QPalette palette = ui->label_strength->palette();
            palette.setColor(ui->label_strength->foregroundRole(), Qt::red);
@@ -88,25 +90,27 @@ if(n!=0)
 
        }
 
-
-
-
-
-
 }
 else
 {
     ui->label_strength->setText("");
 }
 QString username=ui->lineEdit_si_username->text();
+QString usernamecheck=ui->lineEdit_si_username->text().toUpper();
  int userlen = username.length();
+   bool upper=false;
  if(userlen!=0)
  {
-    bool upper=false;
 
+    QString nine="9";
+    QString zero="0";
      for(int i=0;i<userlen;i++)
      {
-         if(username[i]==username[i].toUpper())
+         if(username[i]>=zero && username[i]<=nine)
+         {
+             continue;
+         }
+         if(username[i]==usernamecheck[i])
          {
              upper=true;
          }
@@ -129,17 +133,54 @@ QString username=ui->lineEdit_si_username->text();
  {
      ui->label_caps_lock->setText("");
  }
+if(upper==false && username!="")
+{
+  QSqlQuery qy(QSqlDatabase::database("myconnect"));
+
+  qy.prepare("select * from login where user=:user");
+  qy.bindValue(":user",username);
+  qy.exec();
+  if(qy.next())
+  {
+
+       ui->label_caps_lock->setText("USERNAME NOT AVAILABLE");
+       QPalette palette = ui->label_caps_lock->palette();
+       palette.setColor(ui->label_caps_lock->foregroundRole(), Qt::red);
+       ui->label_caps_lock->setPalette(palette);
+       user_acc=false;
+
+  }
+  else
+  {
+      ui->label_caps_lock->setText("USERNAME AVAILABLE");
+      QPalette palette = ui->label_caps_lock->palette();
+      palette.setColor(ui->label_caps_lock->foregroundRole(), Qt::green);
+      ui->label_caps_lock->setPalette(palette);
+      user_acc=true;
+  }
+}
+else if(upper==false && username=="")
+{
+     ui->label_caps_lock->setText("");
+}
+
+
+
 
 }
 
 
 void signup_form::on_pushButton_SIGNUP_clicked()
 {
-    QSqlDatabase db= QSqlDatabase::addDatabase("QSQLITE");
- db.setDatabaseName("HOME.sqlite");
 
-
-
+   if(ui->lineEdit_si_username->text()==""||ui->lineEdit_2->text()==""||ui->lineEdit_CONFIRM->text()=="")
+   {
+        QMessageBox::warning(0,"SIGNUP","PLEASE ENTER DATA PROPERLY");
+   }
+   else
+    {
+       QSqlDatabase db= QSqlDatabase::addDatabase("QSQLITE");
+      db.setDatabaseName("HOME.sqlite");
     if(db.open())
     {
 
@@ -150,8 +191,12 @@ void signup_form::on_pushButton_SIGNUP_clicked()
       if(password!=confirm)
       {
           accept=false;
-           QMessageBox::warning(this,"SIGNUP","PASSWORD MISMATCHED");
+           QMessageBox::warning(0,"SIGNUP","PASSWORD MISMATCHED");
 
+      }
+      else if(user_acc==false)
+      {
+          QMessageBox::warning(0,"SIGNUP","USERNAME NOT AVAILABLE");
       }
        else
       {
@@ -165,7 +210,7 @@ void signup_form::on_pushButton_SIGNUP_clicked()
 
                  if(qy.exec())
                  {
-                     QMessageBox::information(this,"SIGNUP","SIGNUP SUCCESSFULL");
+                     QMessageBox::information(0,"SIGNUP","SIGNUP SUCCESSFULL");
                      hide();
                      admin_login ad;
                      ad.setModal(true);
@@ -174,16 +219,16 @@ void signup_form::on_pushButton_SIGNUP_clicked()
                   }
                   else
                   {
-                   QMessageBox::warning(this,"SIGNUP","NOT INSERTED INTO DATABASE");
+                   QMessageBox::warning(0,"SIGNUP","NOT INSERTED INTO DATABASE");
                    }
         }
      else
      {
-        QMessageBox::warning(this,"SIGNUP","PASSWORD WEAK");
+        QMessageBox::warning(0,"SIGNUP","PASSWORD WEAK");
      }
       }
     }
-
+   }
 }
 
 
@@ -204,7 +249,7 @@ void signup_form::on_pushButton_back_clicked()
 void signup_form::on_pushButton_eye_pressed()
 {
 
-    ui->pushButton_eye->setStyleSheet("image: url(:/resources/resources/vecteezy_preview-show-interface-icon_6086018.jpg);");
+    ui->pushButton_eye->setStyleSheet("#pushButton_eye {image: url(:/resources/resources/8666618_eye_icon.png);border:none; background:#E5CB94;  color:#0F1628;border-radius:16px; border: 2px solid blue ; border-color: #0F1628; border-radius: 8px;   padding: 2px;  } #pushButton_eye:hover  {border:none;background:floral white;color:#0F1628;border-radius:16px;border: 2px solid blue ;border-color: #0F1628;border-radius: 8px;padding: 2px;     }");
    ui->lineEdit_2->setEchoMode(QLineEdit::Normal);
     ui->lineEdit_CONFIRM->setEchoMode(QLineEdit::Normal);
 }
@@ -212,7 +257,7 @@ void signup_form::on_pushButton_eye_pressed()
 
 void signup_form::on_pushButton_eye_released()
 {
-    ui->pushButton_eye->setStyleSheet("image: url(:/resources/resources/eye_off.jpg);");
+    ui->pushButton_eye->setStyleSheet("#pushButton_eye {image: url(:/resources/resources/8666649_eye_off_icon.png);border:none; background:#E5CB94;  color:#0F1628;border-radius:16px; border: 2px solid blue ; border-color: #0F1628; border-radius: 8px;   padding: 2px;  } #pushButton_eye:hover  {border:none;background:floral white;color:#0F1628;border-radius:16px;border: 2px solid blue ;border-color: #0F1628;border-radius: 8px;padding: 2px;     }");
     ui->lineEdit_2->setEchoMode(QLineEdit::Password);
      ui->lineEdit_CONFIRM->setEchoMode(QLineEdit::Password);
 }

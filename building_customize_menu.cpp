@@ -41,15 +41,18 @@ void building_customize_menu::on_pushButton_ADMIT_clicked()
     QString address=ui->lineEdit_ADDRESS->text();
     QString type=ui->textEdit->toPlainText();
     QSqlDatabase db= QSqlDatabase::addDatabase("QSQLITE","myconnect");
-  db.setDatabaseName("HOME.sqlite");
+ db.setDatabaseName("HOME.sqlite");
+
+
+
      if(FLAT==""||FLOOR==0)
      {
-         QMessageBox::warning(this,"BUILDING","PLEASE INSERT DATA");
+         QMessageBox::warning(0,"BUILDING","PLEASE INSERT DATA");
      }
      else
     {
          QMessageBox::StandardButton reply;
-    reply=QMessageBox::question(this,"BUILDING","ARE SURE WANT TO ADMIT",QMessageBox::Yes|QMessageBox::No);
+    reply=QMessageBox::question(0,"BUILDING","ARE SURE WANT TO ADMIT",QMessageBox::Yes|QMessageBox::No);
 
      if(reply==QMessageBox::Yes)
     {
@@ -73,11 +76,11 @@ void building_customize_menu::on_pushButton_ADMIT_clicked()
             qy.exec();
         }
     }
-    QMessageBox::information(this,"BUILDING","SUCESSFULLY ADDED");
+    QMessageBox::information(0,"BUILDING","SUCESSFULLY ADDED");
      }
      else
      {
-          QMessageBox::warning(this,"BUILDING","DATABASE NOT OPENED");
+          QMessageBox::warning(0,"BUILDING","DATABASE NOT OPENED");
      }
     }
 }
@@ -100,24 +103,20 @@ void building_customize_menu::on_pushButton_EDIT_clicked()
     QString type=ui->textEdit->toPlainText();
     QString name=ui->lineEdit_BUILD_NAME->text();
     QString address=ui->lineEdit_ADDRESS->text();
-    QSqlQuery qy(QSqlDatabase::database("myconnect"));
-    QSqlQuery qy1(QSqlDatabase::database("myconnect"));
+
     QSqlQuery qy2(QSqlDatabase::database("myconnect"));
 
-   // qy1.prepare(QString("DELETE FROM renter"));
-    //qy1.exec();
     qy2.prepare("UPDATE building set name=:name,address=:address,type=:type");
     qy2.bindValue(":name",name);
     qy2.bindValue(":address",address);
     qy2.bindValue(":type",type);
-    // qy2.exec();
     if(qy2.exec())
     {
-         QMessageBox::information(this,"BUILDING","EDITED");
+         QMessageBox::information(0,"BUILDING","EDITED");
     }
     else
     {
-        QMessageBox::warning(this,"BUILDING","query not successfull");
+        QMessageBox::warning(0,"BUILDING","query not successfull");
     }
 
 }

@@ -29,13 +29,10 @@ renter_search::~renter_search()
 
 void renter_search::on_pushButton_search_clicked()
 {
-
-
-
     QString val= ui->lineEdit_search->text();
     if(val=="")
     {
-        QMessageBox::warning(this,"RENTER","PLEASE INSERT DATA");
+        QMessageBox::warning(0,"RENTER","PLEASE INSERT DATA");
     }
     else
     {
@@ -66,7 +63,7 @@ void renter_search::on_pushButton_search_clicked()
 
            if(!qy1.exec())
            {
-                QMessageBox::warning(this,"RENTER","DATABASE QUERY NOT OPENED");
+                QMessageBox::warning(0,"RENTER","DATABASE QUERY NOT OPENED");
            }
            else {
                while(ui->tableWidget->rowCount() > 0)
@@ -114,13 +111,13 @@ void renter_search::on_pushButton_search_clicked()
                }
                if(!qy3.exec())
                {
-                    QMessageBox::warning(this,"RENTER","DATABASE QUERY NOT OPENED");
+                    QMessageBox::warning(0,"RENTER","DATABASE QUERY NOT OPENED");
                }
                else
                {
              while(qy3.next())
               {
-                   qDebug()<<qy3.value(7)<<val1;
+
                 //  if(qy3.value(7)==val1)
                //  {
                    ui->tableWidget_2->insertRow(rowcount2);
@@ -169,7 +166,7 @@ void renter_search::on_pushButton_search_clicked()
                qy1.prepare("select * from trans where FLAT='"+val+"'");
                if(!qy1.exec())
                {
-                    QMessageBox::warning(this,"RENTER","DATABASE QUERY NOT OPENED");
+                    QMessageBox::warning(0,"RENTER","DATABASE QUERY NOT OPENED");
                }
                else {
                    while (ui->tableWidget->rowCount() > 0)
@@ -218,7 +215,7 @@ void renter_search::on_pushButton_search_clicked()
 
        else
        {
-            QMessageBox::warning(this,"RENTER","RENTER NOT FOUND");
+            QMessageBox::warning(0,"RENTER","RENTER NOT FOUND");
        }
 
 
@@ -226,7 +223,7 @@ void renter_search::on_pushButton_search_clicked()
 
        else
        {
-           QMessageBox::warning(this,"RENTER","RENTER NOT FOUND");
+           QMessageBox::warning(0,"RENTER","RENTER NOT FOUND");
        }
 
 

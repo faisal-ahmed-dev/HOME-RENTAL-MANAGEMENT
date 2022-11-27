@@ -36,7 +36,7 @@ void MAINTENANCE::on_pushButton_ADD_clicked()
         int total=bill*percentage/100;
 
     QSqlDatabase db= QSqlDatabase::addDatabase("QSQLITE","myconnect");
- db.setDatabaseName("HOME.sqlite");
+  db.setDatabaseName("HOME.sqlite");
    if(db.open())
    {
 
@@ -54,10 +54,9 @@ void MAINTENANCE::on_pushButton_ADD_clicked()
      query.prepare("select * from MAINTENANCE");
 
 
-
      if(!query.exec())
        {
-            QMessageBox::warning(this,"MAINTENANCE","DATABASE QUERY NOT OPENED");
+            QMessageBox::warning(0,"MAINTENANCE","DATABASE QUERY NOT OPENED");
        }
        else {
            ui->tableWidget->setColumnCount(5);
@@ -112,7 +111,7 @@ void MAINTENANCE::on_pushButton_ADD_clicked()
    }
    else
    {
-       QMessageBox::warning(this,"MAINTENANCE","DATABASE NOT OPENED");
+       QMessageBox::warning(0,"MAINTENANCE","DATABASE NOT OPENED");
    }
 
 
@@ -162,7 +161,7 @@ void MAINTENANCE::on_pushButton_ADMIT_clicked()
     QDateTime dateTime = dateTime.currentDateTime();
     QString as = dateTime.toString("MM/yyyy");
     QString flat=ui->lineEdit_FLAT->text().toUpper();
-     int DUE=0,advance,advance_now;
+     int DUE=0,advance=0;
      int rent_now=ui->lineEdit_TOTAL->text().toInt();
      QSqlQuery qy(QSqlDatabase::database("myconnect"));
      QSqlQuery qy1(QSqlDatabase::database("myconnect"));
@@ -186,13 +185,9 @@ void MAINTENANCE::on_pushButton_ADMIT_clicked()
      {
             advance=advance+qy4.value(2).toInt();
      }
-     advance_now=rent_now-advance;
+
      rent_now=rent_now-advance;
 
-     if(advance_now<0)
-     {
-         advance_now=0;
-     }
      qy5.prepare(QString("UPDATE ADVANCE set STATUS=:add,AMOUNT=:amount where FLAT=:flat"));
      qy5.bindValue(":flat",flat);
      qy5.bindValue(":amount",ui->lineEdit_TOTAL->text());
@@ -210,6 +205,7 @@ void MAINTENANCE::on_pushButton_ADMIT_clicked()
      qy6.exec();
      rent_now=0;
      }
+
      QString payment;
      DUE=DUE+rent_now;
      QString month_rent=QString::number(rent_now);
@@ -248,11 +244,11 @@ void MAINTENANCE::on_pushButton_ADMIT_clicked()
          ui->lineEdit_BILL->setText("");
          ui->lineEdit_ISSUE->setText("");
          ui->lineEdit_PERCENTAGE->setText("");
-         QMessageBox::information(this,"MAINTENANCE","UPDATED");
+         QMessageBox::information(0,"MAINTENANCE","UPDATED");
      }
      else
      {
-          QMessageBox::warning(this,"MAINTENANCE","NOT UPDATED");
+          QMessageBox::warning(0,"MAINTENANCE","NOT UPDATED");
      }
 
 
